@@ -13,10 +13,12 @@
   <header class="top">
     <a class="wordmark" href="/"><span class="mark" aria-hidden="true">✚</span> PHYSIO<span>QUEST</span></a>
     <div class="actions">
+      <button id="music" class="secondary" aria-pressed="false">Music off</button>
       <button id="sound" class="secondary" aria-pressed="false">Sound off</button>
       <button id="open-rules" class="secondary">How to play</button>
     </div>
   </header>
+  <audio id="background-track" src="/quest-loop.mp3" preload="none" loop></audio>
   <main id="app" aria-busy="true"></main>
   <p id="notice" role="status"></p>
   <div class="sr-only" id="announcement" aria-live="polite"></div>

@@ -1,6 +1,6 @@
 # Physio Quest LIVE
 
-A live multiplayer physiotherapy quiz built for groups. The host runs the game from one screen, and up to 100 players can join on their phones. The 30-question bank covers physiotherapy case reasoning, biomechanics, exercise dosing, and movement-data interpretation.
+A live multiplayer physiotherapy quiz built for groups. The host runs the game from one screen, and up to 100 players can join on their phones. The 30-question beginner bank introduces physical therapy, everyday movement, goal-setting, and simple ways to track progress.
 
 ## Run the game
 
@@ -30,7 +30,7 @@ Open `http://localhost:3000`. Choose **Host game** and pick 10, 20, or 30 questi
 | Beat the Fuse | Correct answers in the first 70% of the timer earn +300. |
 | Final Boss | Correct answers earn double the ranked base points. |
 
-A streak adds 200 points to each correct answer from the third in a row. Incorrect or missed answers reset the streak. Tap **Sound off** to enable cues on your device.
+A streak adds 200 points to each correct answer from the third in a row. Incorrect or missed answers reset the streak. Tap **Music off** for the looping background track and **Sound off** for round and countdown cues. The two controls work independently on each device.
 
 Players and the host can reload the same tab to reconnect. New seats can join before the first question. Rooms live in memory on a single server instance and expire after three hours or when the server restarts. Edit `questions.json` to customize the bank.
 

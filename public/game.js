@@ -7,14 +7,39 @@ const announcement = document.querySelector('#announcement');
 const rules = document.querySelector('#rules');
 const numbers = new Intl.NumberFormat();
 const kinds = {
-  visual: ['Movement Lab', 'Compare the visual evidence before you answer'],
-  confidence: ['Double Down', 'Play safe or add +400 for a correct answer and −200 for a miss'],
-  clue: ['Clue Drop', 'A clue appears halfway through. Answer correctly before it drops for +200'],
-  retry: ['Second Look', 'Keep your first answer or change it once. A change resets your place in the speed race'],
-  steady: ['Think Tank', 'Every correct answer earns 700 base points, regardless of speed'],
-  bomb: ['Beat the Fuse', 'Lock a correct answer in the first 70% of the clock for +300'],
-  final: ['Final Boss', 'Correct answers earn double the ranked base points']
+  visual: ['Movement Lab', 'Inspect the picture or chart to find your answer.', '🔎', [392, 523]],
+  confidence: ['Double Down', 'Take the risk for +400 if right and −200 if wrong.', '🎲', [330, 495, 660]],
+  clue: ['Clue Drop', 'A clue drops halfway through. Answer correctly before it for +200.', '💡', [523, 659, 523]],
+  retry: ['Second Look', 'Keep your answer or change it once. A change resets your speed rank.', '↩️', [523, 440, 587]],
+  steady: ['Think Tank', 'Take your time. Every correct answer earns 700 base points.', '🧠', [330, 392]],
+  bomb: ['Beat the Fuse', 'Answer correctly in the first 70% of the clock for +300.', '💣', [196, 196, 294]],
+  final: ['Final Boss', 'Correct answers earn double the ranked base points.', '🏆', [262, 392, 523, 784]]
 };
+const musicButton = document.querySelector('#music');
+const backgroundTrack = document.querySelector('#background-track');
+backgroundTrack.volume = 0.24;
+
+musicButton.onclick = async () => {
+  if (!backgroundTrack.paused) {
+    backgroundTrack.pause();
+    return;
+  }
+  try {
+    await backgroundTrack.play();
+  } catch {
+    if (backgroundTrack.error) toast('Background music could not load.');
+    else if (backgroundTrack.paused) toast('Tap Music to start the background track.');
+  }
+};
+
+for (const event of ['playing', 'pause', 'error']) {
+  backgroundTrack.addEventListener(event, () => {
+    const playing = !backgroundTrack.paused && !backgroundTrack.error;
+    musicButton.textContent = playing ? 'Music on' : 'Music off';
+    musicButton.setAttribute('aria-pressed', String(playing));
+  });
+}
+
 const soundButton = document.querySelector('#sound');
 let audio;
 let soundOn = false;
@@ -91,7 +116,7 @@ function home() {
       <section>
         <p class="eyebrow">LIVE MULTIPLAYER PHYSIO QUIZ</p>
         <h1>Physio<br><span>Quest.</span></h1>
-        <p class="intro">Gather your group, grab your phones, and see how well you know the body in motion.</p>
+        <p class="intro">Play together and discover how physical therapists help people move, recover and reach their goals.</p>
         <button class="secondary" data-action="rules">Explore the playbook</button>
       </section>
       <section class="panel">
@@ -146,7 +171,7 @@ function motionStudy(visual) {
   });
   return `<figure class="lab motion">
     <figcaption>${escape(visual.title)}</figcaption>
-    <div class="pose" role="img" aria-label="Frame ${active + 1}. Knee is ${frame.gap} diagram units ahead of the planted ankle.">
+    <div class="pose" role="img" aria-label="Frame ${active + 1}. Knee bent about ${frame.bend} degrees.">
       <span class="plumb"></span>
       ${parts.join('')}
       ${frame.joints.map(([x, y], index) =>
@@ -191,7 +216,7 @@ function pointLabel(points) {
 
 function round(s) {
   const q = s.question;
-  const [kind, rule] = kinds[q.kind];
+  const [kind, rule, icon] = kinds[q.kind];
   const revealed = s.phase === 'results';
   const live = !revealed && !s.host;
   const active = s.players.filter(p => p.connected).length;
@@ -202,12 +227,15 @@ function round(s) {
     <div class="meta"><p class="eyebrow">QUESTION ${s.index + 1} / ${s.total}</p>
       ${revealed ? '' : '<span class="clock" id="clock"></span>'}</div>
     ${revealed ? '' : `<progress id="timer" max="${q.seconds * 1000}" aria-label="Time remaining"></progress>`}
-    <p>${kind} · ${rule}</p>
+    <div class="round-banner banner-${q.kind}" data-round="${s.pin}-${s.index}">
+      <span class="round-icon" aria-hidden="true">${icon}</span>
+      <div><h2>${kind}</h2><p>${rule}</p></div>
+    </div>
     <h1>${escape(q.title)}</h1>
     ${q.visual ? movementLab(q.visual) : ''}
     ${q.kind === 'clue' ? `<p class="round-callout">${q.hint ? `Clue · ${escape(q.hint)}` : 'Clue drops halfway through the timer.'}</p>` : ''}
     ${q.kind === 'confidence' && live && !s.locked ? `<div class="round-callout actions">
-      <button class="secondary" data-action="bold" aria-pressed="${bold}" ${canAnswer ? '' : 'disabled'}>${bold ? 'Double Down active' : 'Double Down'}</button>
+      <button class="secondary" data-action="bold" aria-pressed="${bold}" ${canAnswer ? '' : 'disabled'}>${bold ? '✓ Double Down armed' : 'Arm Double Down'}</button>
       <span>${bold ? 'Risking 200 for a 400-point bonus' : 'Safe play selected'}</span>
     </div>` : ''}
     <div class="options">${q.options.map((option, index) => {
@@ -244,12 +272,15 @@ function finale(s) {
 
 function render() {
   const focus = app.contains(document.activeElement) ? document.activeElement : null;
+  const banner = app.querySelector('.round-banner');
   const s = state;
   app.innerHTML = s ? `<div class="room-head">
     <p>Room <strong>${s.pin}</strong> · ${s.host ? 'Host' : 'Player'}${!socket.connected ? ' · Reconnecting…' : !s.hostOnline && s.phase !== 'finished' ? ' · Host reconnecting…' : ''}</p>
     ${s.phase === 'finished' ? '' : `<button class="secondary" data-action="leave">${s.host ? 'Close game' : 'Leave game'}</button>`}
     </div><div class="board">${s.phase === 'lobby' ? lobby(s) : s.phase === 'finished' ? finale(s) : round(s)}${standings(s)}</div>` :
     seat ? '<p>Reconnecting to your room…</p>' : home();
+  const nextBanner = app.querySelector('.round-banner');
+  if (banner && nextBanner?.dataset.round === banner.dataset.round) nextBanner.replaceWith(banner);
   app.setAttribute('aria-busy', 'false');
   if (focus?.dataset.action) {
     const target = [...app.querySelectorAll('button')].find(button =>
@@ -320,12 +351,12 @@ socket.on('state', next => {
   clockOffset = next.now - Date.now();
   render();
   if (changed) {
-    if (next.phase === 'question') cue([392, 523]);
+    if (next.phase === 'question') cue(kinds[next.question.kind][3]);
     if (next.phase === 'results') cue(next.host || next.selected === next.reveal.correct ? [523, 659, 784] : [330, 247]);
     if (next.phase === 'finished') cue([392, 523, 659, 784]);
     const message = {
       lobby: 'Joined the lobby',
-      question: `Question ${next.index + 1}. ${next.question?.title}`,
+      question: `Question ${next.index + 1}. ${next.question ? kinds[next.question.kind][0] : ''}. ${next.question?.title}`,
       results: `Correct answer: ${next.question?.options[next.reveal?.correct]}`,
       finished: 'Game complete'
     };

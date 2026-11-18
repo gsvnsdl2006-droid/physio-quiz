@@ -1,127 +1,114 @@
 [
   {
     "kind": "visual",
-    "title": "Both legs averaged similar peak force on a single-leg hop. Which athlete showed the biggest performance drop across three hops?",
+    "title": "Which warm-up included the most minutes of easy movement?",
     "options": [
-      "Athlete A",
-      "Athlete B",
-      "Athlete C",
-      "All declined equally"
+      "Walk",
+      "Bike",
+      "Dance"
     ],
-    "correct": 1,
-    "explanation": "B fell from 100 to 70 cm. The repeated trials reveal a drop that a single best effort misses.",
-    "seconds": 35,
+    "correct": 2,
+    "explanation": "The dance warm-up lasted six minutes. Easy movement is one way to get warmed up.",
+    "seconds": 28,
     "visual": {
-      "title": "Hop distance · cm",
+      "title": "Warm-up minutes",
       "labels": [
-        "Hop 1",
-        "Hop 2",
-        "Hop 3"
+        "Minutes"
       ],
       "sets": {
-        "Athlete A": [
-          98,
-          95,
-          91
+        "Walk": [
+          3
         ],
-        "Athlete B": [
-          100,
-          84,
-          70
+        "Bike": [
+          4
         ],
-        "Athlete C": [
-          94,
-          96,
-          94
+        "Dance": [
+          6
         ]
       }
     }
   },
   {
     "kind": "confidence",
-    "title": "A runner’s knee pain appears only on downhill sections. Which comparison best tests whether slope is the trigger?",
+    "title": "What does a physical therapist mainly help people do?",
     "options": [
-      "Compare two different shoes on different hills",
-      "Repeat the same pace and distance on flat and downhill routes",
-      "Compare a sprint with a slow downhill walk",
-      "Change pace, surface and slope together"
+      "Choose eyeglasses",
+      "Move and do everyday activities more easily",
+      "Fill a tooth",
+      "Learn music"
     ],
     "correct": 1,
-    "explanation": "Changing one main variable makes it easier to interpret the response.",
-    "seconds": 30
+    "explanation": "Physical therapists help people improve how they move and take part in activities that matter to them.",
+    "seconds": 24
   },
   {
     "kind": "clue",
-    "title": "A climber struggles to pinch a key and compensate by bending the tip of the thumb. Which nerve supplies the muscle typically weak in this sign?",
+    "title": "I bend and straighten so you can sit down and stand up. I join your thigh to your lower leg. What am I?",
     "options": [
-      "Median nerve",
-      "Radial nerve",
-      "Ulnar nerve",
-      "Axillary nerve"
+      "Elbow",
+      "Wrist",
+      "Knee",
+      "Shoulder"
     ],
     "correct": 2,
-    "explanation": "This resembles Froment’s sign. Ulnar-innervated adductor pollicis is weak and flexor pollicis longus compensates.",
-    "seconds": 26,
-    "hint": "Think adductor pollicis."
+    "explanation": "Your knee bends when you sit and straightens when you stand.",
+    "seconds": 22,
+    "hint": "I sit right above your shin."
   },
   {
     "kind": "retry",
-    "title": "An athlete does 3 sets of 8 squats at 40 kg. Which change increases total external load by exactly 25% if everything else stays fixed?",
+    "title": "Which activity is a good example of practicing balance?",
     "options": [
-      "3 sets of 10 at 40 kg",
-      "3 sets of 8 at 48 kg",
-      "4 sets of 8 at 40 kg",
-      "3 sets of 9 at 40 kg"
+      "Squeezing a ball while seated",
+      "Standing on one foot near a support",
+      "Reading on the sofa",
+      "Counting your steps"
     ],
-    "correct": 0,
-    "explanation": "The starting volume is 960 kg. Thirty repetitions at 40 kg gives 1,200 kg, a 25% increase.",
-    "seconds": 30
+    "correct": 1,
+    "explanation": "Standing on one foot gives you a narrower base and challenges your balance.",
+    "seconds": 25
   },
   {
     "kind": "steady",
-    "title": "Two athletes report the same pain score. Which extra detail best helps you compare how sensitive their symptoms are to activity?",
+    "title": "True or false? Physical therapy can help people who don’t play sports.",
     "options": [
-      "Which athlete is taller",
-      "Their favorite exercise",
-      "How much activity triggers symptoms and how long they take to settle",
-      "The color of their shoes"
+      "True",
+      "False"
     ],
-    "correct": 2,
-    "explanation": "The load needed to provoke symptoms and the recovery time describe irritability more usefully than a single score.",
-    "seconds": 30
+    "correct": 0,
+    "explanation": "Physical therapists work with people of all ages on things like walking, balance, recovery and daily tasks.",
+    "seconds": 22
   },
   {
     "kind": "bomb",
-    "title": "A player can push down strongly through the foot, but repeatedly catches their toes when walking. Which action is most directly limited?",
+    "title": "Which part of your body bends when you bring a spoon toward your mouth?",
     "options": [
-      "Ankle plantarflexion",
-      "Ankle dorsiflexion",
-      "Knee extension",
-      "Hip adduction"
+      "Elbow",
+      "Ankle",
+      "Knee",
+      "Hip"
     ],
-    "correct": 1,
-    "explanation": "Dorsiflexion lifts the front of the foot so the toes clear the ground during swing.",
-    "seconds": 20
+    "correct": 0,
+    "explanation": "Your elbow bends to bring your hand closer to your face.",
+    "seconds": 16
   },
   {
     "kind": "visual",
-    "title": "Scrub through a step-down. During which frame is the knee farthest forward relative to the planted ankle?",
+    "title": "Tap through the movement. In which frame is the knee bent the most?",
     "options": [
       "Frame 1 · Start",
       "Frame 2 · Lower",
-      "Frame 3 · Tap",
-      "The same in all three"
+      "Frame 3 · Tap"
     ],
     "correct": 2,
-    "explanation": "At the tap, the knee is farthest forward of the planted ankle. The exercise can look very different at different points in the repetition.",
-    "seconds": 35,
+    "explanation": "The knee is most bent in the last frame. The angle between the thigh and lower leg is smallest there.",
+    "seconds": 28,
     "visual": {
       "type": "pose",
       "title": "Step-down motion study",
       "frames": [
         {
           "name": "Start",
-          "gap": 5,
           "joints": [
             [
               96,
@@ -143,11 +130,11 @@
               118,
               157
             ]
-          ]
+          ],
+          "bend": 13
         },
         {
           "name": "Lower",
-          "gap": 24,
           "joints": [
             [
               116,
@@ -169,11 +156,11 @@
               118,
               157
             ]
-          ]
+          ],
+          "bend": 59
         },
         {
           "name": "Tap",
-          "gap": 42,
           "joints": [
             [
               132,
@@ -195,357 +182,167 @@
               118,
               157
             ]
-          ]
+          ],
+          "bend": 106
         }
       ]
     }
   },
   {
     "kind": "confidence",
-    "title": "A student raises their straight leg. They feel a familiar pull that changes when their ankle moves while the hip stays still. What is the most defensible conclusion?",
+    "title": "Rana wants to get better at climbing the stairs at home. Which goal fits her best?",
     "options": [
-      "It proves a disc herniation",
-      "It identifies a torn hamstring",
-      "The response may involve neural sensitivity and needs context",
-      "The ankle is the source of all symptoms"
+      "Hold a pencil longer",
+      "Walk up her stairs more easily",
+      "Learn to throw farther",
+      "Reach higher with her arms"
     ],
-    "correct": 2,
-    "explanation": "Changing a distant joint can alter neural loading, but the response alone cannot establish a diagnosis.",
-    "seconds": 30
+    "correct": 1,
+    "explanation": "In physical therapy, goals often come from everyday tasks the person wants to do.",
+    "seconds": 24
   },
   {
     "kind": "clue",
-    "title": "A lifter’s shoulder blade lifts away from the rib cage during a wall push. Which muscle normally helps keep it against the chest wall?",
+    "title": "You rise onto your tiptoes to reach a high shelf. Which muscles are helping lift your heels?",
     "options": [
-      "Upper trapezius",
-      "Serratus anterior",
-      "Latissimus dorsi",
-      "Infraspinatus"
+      "Calf muscles",
+      "Jaw muscles",
+      "Forearm muscles",
+      "Neck muscles"
     ],
-    "correct": 1,
-    "explanation": "Serratus anterior protracts and helps hold the scapula against the thorax.",
-    "seconds": 26,
-    "hint": "Its nerve is the long thoracic nerve."
+    "correct": 0,
+    "explanation": "Your calf muscles help point the foot and raise the heel.",
+    "seconds": 22,
+    "hint": "They’re on the back of your lower leg."
   },
   {
     "kind": "retry",
-    "title": "A patient’s best knee flexion measures 115° today and 118° next time. Your procedure can vary by about 5°. What should you conclude?",
+    "title": "True or false? A physical therapist might give you exercises to practice at home.",
     "options": [
-      "There is a definite 3° improvement",
-      "The second measurement must be wrong",
-      "The change alone is too small to separate from measurement variation",
-      "They lost 3° of flexion"
-    ],
-    "correct": 2,
-    "explanation": "An apparent change smaller than the expected variation should be interpreted cautiously.",
-    "seconds": 30
-  },
-  {
-    "kind": "confidence",
-    "title": "An athlete completes a side plank for 60 seconds on the right and 45 on the left. What percentage of the right-side time is the left-side time?",
-    "options": [
-      "25%",
-      "67%",
-      "75%",
-      "80%"
-    ],
-    "correct": 2,
-    "explanation": "45 ÷ 60 = 0.75, so the left-side time is 75% of the right.",
-    "seconds": 30
-  },
-  {
-    "kind": "visual",
-    "title": "Force was measured at three points during each landing. Which trial reached its highest force earliest?",
-    "options": [
-      "Trial A",
-      "Trial B",
-      "Trial C",
-      "All peaked at the same time"
+      "True",
+      "False"
     ],
     "correct": 0,
-    "explanation": "Trial A was highest at its first sample, 50 ms. A peak’s timing can differ even when peak values are similar.",
-    "seconds": 35,
-    "visual": {
-      "title": "Landing force · N",
-      "labels": [
-        "50 ms",
-        "100 ms",
-        "150 ms"
-      ],
-      "sets": {
-        "Trial A": [
-          920,
-          670,
-          420
-        ],
-        "Trial B": [
-          420,
-          940,
-          610
-        ],
-        "Trial C": [
-          390,
-          610,
-          910
-        ]
-      }
-    }
+    "explanation": "Home practice can help you build on what you learn during your sessions.",
+    "seconds": 25
   },
   {
     "kind": "steady",
-    "title": "A patient’s maximum walking distance improves, but they still avoid the stairs at home. Which outcome best reflects their original goal?",
+    "title": "What would be useful to tell your physical therapist at a first visit?",
     "options": [
-      "Their resting heart rate",
-      "Whether they can climb their home stairs with acceptable symptoms",
-      "The therapist’s estimate of quadriceps size",
-      "The clinic’s longest hallway lap"
+      "Which movements are hard for you",
+      "What color shoes they should wear",
+      "The name of your favorite singer",
+      "Your best video game score"
     ],
-    "correct": 1,
-    "explanation": "A task relevant to the patient’s daily life directly measures progress toward their goal.",
-    "seconds": 30
-  },
-  {
-    "kind": "bomb",
-    "title": "Why does holding the same dumbbell farther from the elbow make an isometric curl harder when the forearm stays horizontal?",
-    "options": [
-      "The weight gets heavier",
-      "The lever arm increases",
-      "Gravity changes direction",
-      "The biceps stops contracting"
-    ],
-    "correct": 1,
-    "explanation": "External torque equals force multiplied by its perpendicular distance from the axis.",
-    "seconds": 20
-  },
-  {
-    "kind": "clue",
-    "title": "A runner has trouble lowering slowly from a heel raise. What kind of calf contraction controls the descent?",
-    "options": [
-      "Concentric",
-      "Isometric",
-      "Eccentric",
-      "Passive"
-    ],
-    "correct": 2,
-    "explanation": "The calf produces tension while lengthening as the heel lowers.",
-    "seconds": 26,
-    "hint": "The muscle is active while getting longer."
-  },
-  {
-    "kind": "retry",
-    "title": "An athlete moves from 2 sessions of 30 minutes to 3 sessions of 25 minutes in a week. What happens to weekly exercise time?",
-    "options": [
-      "Drops by 5 minutes",
-      "Stays the same",
-      "Rises by 15 minutes",
-      "Rises by 25 minutes"
-    ],
-    "correct": 2,
-    "explanation": "The original total is 60 minutes and the new total is 75 minutes.",
-    "seconds": 30
+    "correct": 0,
+    "explanation": "Knowing what is hard and what you want to do helps the therapist plan with you.",
+    "seconds": 22
   },
   {
     "kind": "visual",
-    "title": "Which plan increased weekly running time the most between Weeks 1 and 3?",
+    "title": "Which player stood on one foot for the longest time?",
     "options": [
-      "Plan A",
-      "Plan B",
-      "Plan C",
-      "All increased equally"
+      "Maya",
+      "Nour",
+      "Karim"
     ],
-    "correct": 0,
-    "explanation": "Plan A rose from 40 to 65 minutes, a gain of 25 minutes. B gained 10 and C gained none.",
-    "seconds": 35,
+    "correct": 2,
+    "explanation": "Karim held the position for 12 seconds. Timing a task is one way to track progress.",
+    "seconds": 28,
     "visual": {
-      "title": "Running time · min per week",
+      "title": "Single-leg balance · seconds",
       "labels": [
-        "Week 1",
-        "Week 2",
-        "Week 3"
+        "Hold time"
       ],
       "sets": {
-        "Plan A": [
-          40,
-          50,
-          65
+        "Maya": [
+          7
         ],
-        "Plan B": [
-          50,
-          55,
-          60
+        "Nour": [
+          9
         ],
-        "Plan C": [
-          60,
-          65,
-          60
+        "Karim": [
+          12
         ]
       }
     }
   },
   {
     "kind": "confidence",
-    "title": "In a movement screen, a runner’s knee drifts inward during a step-down. Which statement is best supported?",
+    "title": "Which movement would a therapist watch to learn how you get up from a chair?",
     "options": [
-      "It proves a hip muscle is weak",
-      "It confirms a ligament injury",
-      "It is an observed movement pattern worth exploring with more context",
-      "It predicts exactly when they will get injured"
-    ],
-    "correct": 2,
-    "explanation": "A single observation describes movement. It does not establish the cause or predict an injury on its own.",
-    "seconds": 30
-  },
-  {
-    "kind": "clue",
-    "title": "During walking with a single cane to unload a sore left hip, which hand typically holds the cane?",
-    "options": [
-      "Left",
-      "Right",
-      "Either hand has the same mechanical effect",
-      "Both hands together"
-    ],
-    "correct": 1,
-    "explanation": "A cane in the opposite hand can help reduce the demand on the hip abductors during stance.",
-    "seconds": 26,
-    "hint": "Think about the opposite side from the sore hip."
-  },
-  {
-    "kind": "steady",
-    "title": "A patient can lift more weight than last month, but their symptoms and daily activities have not changed. Which conclusion fits the data?",
-    "options": [
-      "Strength improved in the tested task",
-      "The pain will definitely improve next week",
-      "They no longer need any support",
-      "Their walking definitely improved"
+      "A sit-to-stand",
+      "A hand wave",
+      "An eye blink",
+      "A finger snap"
     ],
     "correct": 0,
-    "explanation": "The result supports improvement in the tested task. Other outcomes need their own measures.",
-    "seconds": 30
-  },
-  {
-    "kind": "visual",
-    "title": "Which rider shows the largest increase in heart rate from rest to minute 6?",
-    "options": [
-      "Rider A",
-      "Rider B",
-      "Rider C",
-      "All increased equally"
-    ],
-    "correct": 1,
-    "explanation": "B rose by 54 beats per minute, compared with 40 for A and 35 for C.",
-    "seconds": 35,
-    "visual": {
-      "title": "Heart rate · beats/min",
-      "labels": [
-        "Rest",
-        "Min 3",
-        "Min 6"
-      ],
-      "sets": {
-        "Rider A": [
-          72,
-          95,
-          112
-        ],
-        "Rider B": [
-          68,
-          97,
-          122
-        ],
-        "Rider C": [
-          78,
-          101,
-          113
-        ]
-      }
-    }
+    "explanation": "Watching the actual task helps the therapist see which part feels difficult.",
+    "seconds": 24
   },
   {
     "kind": "bomb",
-    "title": "A bridge is held motionless at the top for 15 seconds. What best describes the action of the hip extensors during the hold?",
+    "title": "Which body part connects your foot to your lower leg?",
     "options": [
-      "Concentric",
-      "Eccentric",
-      "Isometric",
-      "No muscle tension"
+      "Shoulder",
+      "Wrist",
+      "Ankle",
+      "Elbow"
     ],
     "correct": 2,
-    "explanation": "They produce tension while the hip angle stays approximately constant.",
-    "seconds": 20
-  },
-  {
-    "kind": "retry",
-    "title": "A runner times the same 400 m route. Their average time changes from 100 seconds to 90. By what percentage did completion time decrease?",
-    "options": [
-      "9%",
-      "10%",
-      "11%",
-      "20%"
-    ],
-    "correct": 1,
-    "explanation": "The reduction is 10 seconds divided by the original 100 seconds, or 10%.",
-    "seconds": 30
+    "explanation": "Your ankle lets your foot move relative to your lower leg.",
+    "seconds": 16
   },
   {
     "kind": "clue",
-    "title": "Why does sitting down slowly generally require the quadriceps to work even though the knee is bending?",
+    "title": "I help your foot clear the ground when you walk. What movement am I?",
     "options": [
-      "They are shortening to bend the knee",
-      "They are lengthening to control knee flexion",
-      "They pull the hip into extension",
-      "They stop producing force"
+      "Turning your head",
+      "Lifting your toes toward your shin",
+      "Clenching your fist",
+      "Pointing your toes down"
     ],
     "correct": 1,
-    "explanation": "The quadriceps generate knee extension torque while lengthening to control the descent.",
-    "seconds": 26,
-    "hint": "Think of a brake on the way down."
+    "explanation": "Lifting your toes toward your shin is called ankle dorsiflexion. It helps clear the foot during a step.",
+    "seconds": 22,
+    "hint": "Imagine lifting the front of your foot while your heel stays on the floor."
   },
   {
-    "kind": "confidence",
-    "title": "A study reports that a test is highly sensitive for a particular condition. Which interpretation is most accurate?",
+    "kind": "retry",
+    "title": "Which move best practices reaching for an object on a shelf?",
     "options": [
-      "Most people with the condition test positive",
-      "Most positive results prove the condition",
-      "Most people without it test negative",
-      "A positive result always identifies the cause"
+      "Rolling a ball under a table",
+      "Standing on a scale",
+      "Reaching up to place a light object on a shelf",
+      "Tapping your foot"
     ],
-    "correct": 0,
-    "explanation": "Sensitivity is the proportion of people with the condition who test positive.",
-    "seconds": 30
+    "correct": 2,
+    "explanation": "Practicing a version of the real task can help you build the skill you need.",
+    "seconds": 25
   },
   {
     "kind": "visual",
-    "title": "An athlete rates symptoms right after exercise and later that day. Which session had the largest increase after the immediate check?",
+    "title": "Which day showed the longest walk?",
     "options": [
-      "Session A",
-      "Session B",
-      "Session C",
-      "All increased equally"
+      "Day 1",
+      "Day 2",
+      "Day 3"
     ],
-    "correct": 2,
-    "explanation": "C rose from 2 to 6 between the immediate check and evening, the largest increase.",
-    "seconds": 35,
+    "correct": 1,
+    "explanation": "Day 2 reached eight minutes. A walking log can help someone and their therapist see patterns.",
+    "seconds": 28,
     "visual": {
-      "title": "Symptoms · self-rating out of 10",
+      "title": "Walking log · minutes",
       "labels": [
-        "Before",
-        "After",
-        "Evening"
+        "Day 1",
+        "Day 2",
+        "Day 3"
       ],
       "sets": {
-        "Session A": [
-          2,
+        "Walk": [
           5,
-          3
-        ],
-        "Session B": [
-          2,
-          3,
-          4
-        ],
-        "Session C": [
-          2,
-          2,
+          8,
           6
         ]
       }
@@ -553,55 +350,202 @@
   },
   {
     "kind": "steady",
-    "title": "What’s the best way to make a repeated single-leg balance test comparable across visits?",
+    "title": "True or false? Two people with sore shoulders might get different exercise plans.",
     "options": [
-      "Use whatever surface is available",
-      "Keep footwear, surface, instructions and timing consistent",
-      "Change the tested leg each time",
-      "Keep the best attempt secret"
+      "True",
+      "False"
     ],
-    "correct": 1,
-    "explanation": "Standardized test conditions reduce variation unrelated to actual change.",
-    "seconds": 30
-  },
-  {
-    "kind": "bomb",
-    "title": "An athlete walks at 5 km/h for 12 minutes. How far do they cover?",
-    "options": [
-      "0.6 km",
-      "1 km",
-      "1.2 km",
-      "2.4 km"
-    ],
-    "correct": 1,
-    "explanation": "Twelve minutes is one-fifth of an hour. At 5 km/h that is 1 km.",
-    "seconds": 20
+    "correct": 0,
+    "explanation": "Plans can differ because people have different goals, movements and symptoms.",
+    "seconds": 22
   },
   {
     "kind": "clue",
-    "title": "A runner says ‘ركبتي بتوجعني بس بالنزلة’. Which task is the closest clinic comparison to their complaint?",
+    "title": "Which tool might a physical therapist use to count how long you can balance?",
     "options": [
-      "A supported step-down",
-      "A seated handgrip test",
-      "A calf stretch lying down",
-      "An upper-body push-up"
+      "A thermometer",
+      "A stopwatch",
+      "A kitchen scale",
+      "A flashlight"
+    ],
+    "correct": 1,
+    "explanation": "A stopwatch measures time, so you can compare repeated attempts under the same conditions.",
+    "seconds": 22,
+    "hint": "It also comes in handy when timing a race."
+  },
+  {
+    "kind": "confidence",
+    "title": "You’ve been practicing getting up from a chair. Which change best shows that the task is getting easier?",
+    "options": [
+      "You can stand with less help from your hands",
+      "Your chair is a different color",
+      "You changed socks",
+      "Your stopwatch battery is new"
     ],
     "correct": 0,
-    "explanation": "A step-down simulates lowering the body, a key demand when walking downhill.",
-    "seconds": 26,
-    "hint": "بالنزلة means on the way down."
+    "explanation": "Using less hand support is one practical sign that standing up has become easier for you.",
+    "seconds": 24
+  },
+  {
+    "kind": "visual",
+    "title": "Which move used the fewest repetitions in this practice log?",
+    "options": [
+      "Step-ups",
+      "Heel raises",
+      "Sit-to-stands"
+    ],
+    "correct": 2,
+    "explanation": "Sit-to-stands had four repetitions. A repetition is one time through a move.",
+    "seconds": 28,
+    "visual": {
+      "title": "Practice log · repetitions",
+      "labels": [
+        "One set"
+      ],
+      "sets": {
+        "Step-ups": [
+          6
+        ],
+        "Heel raises": [
+          8
+        ],
+        "Sit-to-stands": [
+          4
+        ]
+      }
+    }
+  },
+  {
+    "kind": "bomb",
+    "title": "True or false? Walking, climbing stairs and getting up from a chair can all be physical therapy goals.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 0,
+    "explanation": "Each task uses movement skills that can matter in daily life.",
+    "seconds": 16
+  },
+  {
+    "kind": "retry",
+    "title": "You want to see if your balance improved. Which makes a fair comparison?",
+    "options": [
+      "Use a different surface every time",
+      "Time one foot today and the other foot next week",
+      "Use the same foot, surface and setup each time",
+      "Change the rules halfway through"
+    ],
+    "correct": 2,
+    "explanation": "Keeping the setup the same lets you compare attempts more fairly.",
+    "seconds": 25
+  },
+  {
+    "kind": "clue",
+    "title": "I can stretch, pull back and make an exercise feel harder. You might see me in a clinic. What am I?",
+    "options": [
+      "A resistance band",
+      "A clipboard",
+      "A stopwatch",
+      "A step counter"
+    ],
+    "correct": 0,
+    "explanation": "A resistance band adds a pulling force that you can work against as you move.",
+    "seconds": 22,
+    "hint": "I look a bit like a big elastic band."
+  },
+  {
+    "kind": "confidence",
+    "title": "Maya wants to return to her dance group. Which plan best matches her goal?",
+    "options": [
+      "Skip all movement forever",
+      "Practice dance-related moves in manageable steps",
+      "Only practice handwriting",
+      "Change to a goal chosen by someone else"
+    ],
+    "correct": 1,
+    "explanation": "Therapy can include gradual practice of movements that matter to the person.",
+    "seconds": 24
+  },
+  {
+    "kind": "visual",
+    "title": "Which session included the longest rest between activities?",
+    "options": [
+      "Session A",
+      "Session B",
+      "Session C"
+    ],
+    "correct": 0,
+    "explanation": "Session A had a four-minute rest. The amount of rest changes how a session feels.",
+    "seconds": 28,
+    "visual": {
+      "title": "Rest between activities · minutes",
+      "labels": [
+        "Break"
+      ],
+      "sets": {
+        "Session A": [
+          4
+        ],
+        "Session B": [
+          2
+        ],
+        "Session C": [
+          3
+        ]
+      }
+    }
+  },
+  {
+    "kind": "steady",
+    "title": "What’s a good way to tell your therapist how an exercise went?",
+    "options": [
+      "Say which part felt easy or difficult",
+      "Guess the answer they want to hear",
+      "Only tell them how many people were in the room",
+      "Keep your questions to yourself"
+    ],
+    "correct": 0,
+    "explanation": "Specific feedback helps both of you decide what to practice or adjust next.",
+    "seconds": 22
+  },
+  {
+    "kind": "bomb",
+    "title": "What is one repetition of sitting down and standing back up?",
+    "options": [
+      "Holding your breath",
+      "Sitting down and standing up once",
+      "Standing up five times",
+      "Walking around the chair"
+    ],
+    "correct": 1,
+    "explanation": "One repetition is one full time through the exercise.",
+    "seconds": 16
+  },
+  {
+    "kind": "clue",
+    "title": "A friend says “بدي ارجع امشي مع رفقاتي” — “I want to walk with my friends again.” Which goal matches what they care about?",
+    "options": [
+      "Walk the short route their friends use",
+      "Throw farther",
+      "Get better at swimming",
+      "Practice typing faster"
+    ],
+    "correct": 0,
+    "explanation": "A goal is more useful when it matches the activity the person wants to return to.",
+    "seconds": 22,
+    "hint": "Focus on the activity they want to do with their friends."
   },
   {
     "kind": "final",
-    "title": "A runner’s 6-minute walk improves from 420 m to 465 m. With your protocol, changes under 30 m can reflect measurement variability. The runner still avoids their target hill. What can you conclude?",
+    "title": "After a knee injury, Alex wants to walk to the park again. What could a physical therapist do first?",
     "options": [
-      "They are definitely ready for the hill",
-      "The walk test suggests improved capacity, and hill tolerance still needs its own assessment",
-      "The walk test change is under 30 m",
-      "The walking data prove their pain is gone"
+      "Give everyone the same exercise",
+      "Ask about the goal and see how Alex walks now",
+      "Ignore the walk and only count push-ups",
+      "Promise a full recovery by tomorrow"
     ],
     "correct": 1,
-    "explanation": "The 45 m gain exceeds the stated variability threshold, but level walking and hill tolerance measure different tasks.",
-    "seconds": 40
+    "explanation": "Physical therapy starts by understanding what matters to the person and checking how they move today.",
+    "seconds": 30
   }
 ]
