@@ -1,0 +1,422 @@
+[
+  {
+    "kind": "classic",
+    "title": "Which organ pumps blood around your body?",
+    "options": [
+      "Lungs",
+      "Heart",
+      "Brain",
+      "Liver"
+    ],
+    "correct": 1,
+    "explanation": "The heart pumps blood.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "speed",
+    "title": "How many bones are in a typical adult human skeleton?",
+    "options": [
+      "106",
+      "206",
+      "306",
+      "406"
+    ],
+    "correct": 1,
+    "explanation": "Most adults have 206 bones.",
+    "seconds": 12,
+    "visual": null
+  },
+  {
+    "kind": "riddle",
+    "title": "I bend and straighten your arm, and I sit between your shoulder and wrist. Who am I?",
+    "options": [
+      "Knee",
+      "Elbow",
+      "Ankle",
+      "Hip"
+    ],
+    "correct": 1,
+    "explanation": "The elbow is the joint in the middle of the arm.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "visual",
+    "title": "🦴🦵 Which joint is between the thigh and lower leg?",
+    "options": [
+      "Hip",
+      "Ankle",
+      "Knee",
+      "Shoulder"
+    ],
+    "correct": 2,
+    "explanation": "The knee joins the thigh and lower leg.",
+    "seconds": 20,
+    "visual": "🦴"
+  },
+  {
+    "kind": "bomb",
+    "title": "💣 You have a sprained ankle. What is a sensible first step?",
+    "options": [
+      "Keep playing through pain",
+      "Rest from painful activity",
+      "Force a deep stretch",
+      "Run faster"
+    ],
+    "correct": 1,
+    "explanation": "Stop the activity and assess the injury.",
+    "seconds": 12,
+    "visual": null
+  },
+  {
+    "kind": "lebanese",
+    "title": "Ya zalame, iza 3am yewja3ak dahrek, min byese3dak bel rehabilitation?",
+    "options": [
+      "Dentist",
+      "Physiotherapist",
+      "Pilot",
+      "Chef"
+    ],
+    "correct": 1,
+    "explanation": "A physiotherapist can help with movement and rehabilitation.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "classic",
+    "title": "Which muscle mainly straightens the knee?",
+    "options": [
+      "Quadriceps",
+      "Biceps brachii",
+      "Deltoid",
+      "Triceps brachii"
+    ],
+    "correct": 0,
+    "explanation": "The quadriceps extends the knee.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "buzzer",
+    "title": "🔔 Which body system carries messages between brain and muscles?",
+    "options": [
+      "Digestive",
+      "Nervous",
+      "Respiratory",
+      "Urinary"
+    ],
+    "correct": 1,
+    "explanation": "Nerves carry signals.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "riddle",
+    "title": "I connect muscle to bone. What am I?",
+    "options": [
+      "Ligament",
+      "Tendon",
+      "Cartilage",
+      "Nerve"
+    ],
+    "correct": 1,
+    "explanation": "Tendons connect muscles to bones.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "visual",
+    "title": "🫁 What do these organs help you do?",
+    "options": [
+      "Digest",
+      "Breathe",
+      "Hear",
+      "Balance"
+    ],
+    "correct": 1,
+    "explanation": "Lungs help exchange oxygen and carbon dioxide.",
+    "seconds": 20,
+    "visual": "🦴"
+  },
+  {
+    "kind": "speed",
+    "title": "Which is generally an aerobic activity?",
+    "options": [
+      "Walking briskly",
+      "Holding your breath",
+      "Sitting still",
+      "Sleeping"
+    ],
+    "correct": 0,
+    "explanation": "Brisk walking can train aerobic fitness.",
+    "seconds": 12,
+    "visual": null
+  },
+  {
+    "kind": "lebanese",
+    "title": "Chou ya3ne “3adale” bel English?",
+    "options": [
+      "Bone",
+      "Muscle",
+      "Joint",
+      "Nerve"
+    ],
+    "correct": 1,
+    "explanation": "3adale means muscle.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "classic",
+    "title": "What is the main function of ligaments?",
+    "options": [
+      "Connect bones at joints",
+      "Pump blood",
+      "Digest food",
+      "Carry oxygen"
+    ],
+    "correct": 0,
+    "explanation": "Ligaments connect bone to bone.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "bomb",
+    "title": "💣 Someone feels dizzy during exercise. Best action?",
+    "options": [
+      "Keep pushing",
+      "Stop and tell an adult",
+      "Sprint",
+      "Ignore it"
+    ],
+    "correct": 1,
+    "explanation": "Stop exercise and seek help.",
+    "seconds": 12,
+    "visual": null
+  },
+  {
+    "kind": "visual",
+    "title": "🧠 Which organ controls voluntary movement?",
+    "options": [
+      "Liver",
+      "Brain",
+      "Kidney",
+      "Stomach"
+    ],
+    "correct": 1,
+    "explanation": "The brain coordinates voluntary movement.",
+    "seconds": 20,
+    "visual": "🦴"
+  },
+  {
+    "kind": "riddle",
+    "title": "I am the largest bone in the human body. Who am I?",
+    "options": [
+      "Humerus",
+      "Femur",
+      "Radius",
+      "Tibia"
+    ],
+    "correct": 1,
+    "explanation": "The femur is the largest bone.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "classic",
+    "title": "What does ROM mean in physiotherapy?",
+    "options": [
+      "Rate of muscle",
+      "Range of motion",
+      "Rest on mat",
+      "Rotation of muscle"
+    ],
+    "correct": 1,
+    "explanation": "ROM stands for range of motion.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "lebanese",
+    "title": "Iza rekbetak 3am touja3ak bel football, chou a7san ta3mol?",
+    "options": [
+      "Tkammel w tetjahal",
+      "Twa2ef w te7ke ma3 mas2oul",
+      "Terkod aktar",
+      "Tnott 3layha"
+    ],
+    "correct": 1,
+    "explanation": "Stop painful activity and inform a responsible adult.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "speed",
+    "title": "What does the Achilles tendon connect?",
+    "options": [
+      "Calf muscles to heel",
+      "Shoulder to elbow",
+      "Hand to wrist",
+      "Neck to skull"
+    ],
+    "correct": 0,
+    "explanation": "The Achilles tendon attaches calf muscles to the heel.",
+    "seconds": 12,
+    "visual": null
+  },
+  {
+    "kind": "visual",
+    "title": "🦶 Which part of the body contains the heel?",
+    "options": [
+      "Hand",
+      "Foot",
+      "Elbow",
+      "Shoulder"
+    ],
+    "correct": 1,
+    "explanation": "The heel is part of the foot.",
+    "seconds": 20,
+    "visual": "🦴"
+  },
+  {
+    "kind": "buzzer",
+    "title": "🔔 Which muscle helps bend your elbow?",
+    "options": [
+      "Biceps brachii",
+      "Quadriceps",
+      "Gluteus maximus",
+      "Gastrocnemius"
+    ],
+    "correct": 0,
+    "explanation": "Biceps brachii helps flex the elbow.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "riddle",
+    "title": "I cushion the ends of bones in many joints. What am I?",
+    "options": [
+      "Cartilage",
+      "Skin",
+      "Tendon",
+      "Hair"
+    ],
+    "correct": 0,
+    "explanation": "Articular cartilage helps smooth joint movement.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "classic",
+    "title": "What is balance training useful for?",
+    "options": [
+      "Improving stability",
+      "Changing eye color",
+      "Growing extra bones",
+      "Stopping breathing"
+    ],
+    "correct": 0,
+    "explanation": "Balance training helps postural control.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "lebanese",
+    "title": "Chou bya3mol l physio?",
+    "options": [
+      "Byesaa3ed bel 7arake w rehabilitation",
+      "Byesla7 telephone",
+      "Byekhteber nazar",
+      "Byetbokh"
+    ],
+    "correct": 0,
+    "explanation": "Physiotherapists help restore movement and function.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "bomb",
+    "title": "💣 After a fall, a scout cannot stand and has severe pain. What should friends do?",
+    "options": [
+      "Pull them up",
+      "Get adult/medical help",
+      "Make them run",
+      "Massage forcefully"
+    ],
+    "correct": 1,
+    "explanation": "Avoid moving them unnecessarily and get help.",
+    "seconds": 12,
+    "visual": null
+  },
+  {
+    "kind": "visual",
+    "title": "🦴 Which structure protects the brain?",
+    "options": [
+      "Rib cage",
+      "Skull",
+      "Pelvis",
+      "Kneecap"
+    ],
+    "correct": 1,
+    "explanation": "The skull surrounds and protects the brain.",
+    "seconds": 20,
+    "visual": "🦴"
+  },
+  {
+    "kind": "riddle",
+    "title": "I am a muscle that helps you breathe and sits below your lungs. Who am I?",
+    "options": [
+      "Diaphragm",
+      "Hamstring",
+      "Biceps",
+      "Deltoid"
+    ],
+    "correct": 0,
+    "explanation": "The diaphragm is the main breathing muscle.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "speed",
+    "title": "How many chambers does a human heart have?",
+    "options": [
+      "Two",
+      "Three",
+      "Four",
+      "Five"
+    ],
+    "correct": 2,
+    "explanation": "The heart has four chambers.",
+    "seconds": 12,
+    "visual": null
+  },
+  {
+    "kind": "lebanese",
+    "title": "Ya 3amme, iza 3andak “tashannoj” ba3d l sport, chou a7san?",
+    "options": [
+      "Terte7 w teshrob may",
+      "Tzid l intensity",
+      "Tetjahal l waja3",
+      "Twa2ef l may"
+    ],
+    "correct": 0,
+    "explanation": "Rest and hydration can help with common exercise cramps.",
+    "seconds": 20,
+    "visual": null
+  },
+  {
+    "kind": "final",
+    "title": "🏆 FINAL BOSS: Which statement best describes physiotherapy?",
+    "options": [
+      "Only massage",
+      "Movement, rehabilitation and prevention",
+      "Only surgery",
+      "Only X-rays"
+    ],
+    "correct": 1,
+    "explanation": "Physiotherapy supports movement, function and recovery.",
+    "seconds": 20,
+    "visual": null
+  }
+]
