@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 function publish(room) {
   const q = room.questions[room.index];
+  const hasClue = q?.hint && (room.phase !== 'question' || Date.now() >= room.clueAt);
   const players = [...room.players.values()].sort((a, b) => b.score - a.score);
   const sockets = io.sockets.adapter.rooms.get(room.pin) || [];
   for (const target of sockets) {
@@ -29,17 +30,17 @@ function publish(room) {
       total: room.total,
       deadline: room.deadline,
       now: Date.now(),
-      answered: room.answers.size,
+      answered: [...room.answers.values()].filter(answer => answer.locked).length,
       players: players.map(p => ({
         name: p.name, score: p.score, streak: p.streak, ready: p.ready,
         connected: Boolean(p.socket), me: p.token === token
       })),
       hostOnline: Boolean(room.host.socket),
       selected: room.answers.get(token)?.choice ?? null,
-      points: room.points.get(token) ?? 0,
-      question: q && { title: q.title, options: q.options, kind: q.kind, seconds: q.seconds, visual: q.visual },
+      locked: room.answers.get(token)?.locked ?? false,
+      award: room.points.get(token) ?? null,
+      question: q && { title: q.title, options: q.options, kind: q.kind, seconds: q.seconds, visual: q.visual, hint: hasClue ? q.hint : null },
       reveal: room.phase === 'results' ? { correct: q.correct, explanation: q.explanation } : null,
-      buzzer: room.buzzer
     });
   }
 }
@@ -48,19 +49,26 @@ function finish(room) {
   if (room.phase !== 'question') return;
   clearTimeout(room.timer);
   const q = room.questions[room.index];
-  const firstCorrect = [...room.answers].find(([, answer]) => answer.choice === q.correct)?.[0];
+  clearTimeout(room.clueTimer);
+  const correctInOrder = [...room.answers]
+    .filter(([, answer]) => answer.choice === q.correct)
+    .sort(([, a], [, b]) => a.order - b.order);
+  const ranks = new Map(correctInOrder.map(([token], index) => [token, index + 1]));
   for (const player of room.players.values()) {
     const answer = room.answers.get(player.token);
-    const correct = answer?.choice === q.correct;
+    const rank = ranks.get(player.token);
+    const correct = rank !== undefined;
     player.streak = correct ? player.streak + 1 : 0;
-    if (!correct) continue;
-    let points = q.kind === 'final' ? 2000 : 1000;
-    if (q.kind === 'speed' && firstCorrect === player.token) points += 1000;
-    if (q.kind === 'buzzer' && firstCorrect === player.token) points += 500;
-    if (q.kind === 'bomb' && answer.at < room.deadline - q.seconds * 300) points += 500;
-    if (player.streak >= 3) points += 200;
+    const base = correct ? (q.kind === 'steady' ? 700 : Math.max(100, 1100 - rank * 100)) : 0;
+    const bonuses = [];
+    if (correct && q.kind === 'final') bonuses.push(['Final Boss', base]);
+    if (correct && q.kind === 'bomb' && answer.at < room.deadline - q.seconds * 300) bonuses.push(['Beat the fuse', 300]);
+    if (correct && q.kind === 'clue' && answer.at < room.clueAt) bonuses.push(['Before the clue', 200]);
+    if (answer?.bold) bonuses.push(['Double Down', correct ? 400 : -200]);
+    if (player.streak >= 3) bonuses.push(['Streak', 200]);
+    const points = base + bonuses.reduce((sum, [, value]) => sum + value, 0);
     player.score += points;
-    room.points.set(player.token, points);
+    room.points.set(player.token, { points, base, rank: q.kind === 'steady' ? null : rank, bonuses });
   }
   room.phase = 'results';
   publish(room);
@@ -69,7 +77,7 @@ function finish(room) {
 function finishIfEveryoneAnswered(room) {
   if (room.phase !== 'question') return;
   const active = [...room.players.values()].filter(p => p.socket);
-  if (active.length && active.every(p => room.answers.has(p.token))) finish(room);
+  if (active.length && active.every(p => room.answers.get(p.token)?.locked)) finish(room);
 }
 
 function attach(socket, room, member, host, reply) {
@@ -98,7 +106,7 @@ io.on('connection', socket => {
     const room = {
       pin, total, questions: [...questions.slice(0, total - 1), questions.at(-1)], host: { token: randomUUID() }, players: new Map(),
       phase: 'lobby', index: -1, deadline: 0, answers: new Map(), points: new Map(),
-      buzzer: null, expires: Date.now() + roomLifetime
+      order: 0, expires: Date.now() + roomLifetime
     };
     rooms.set(pin, room);
     attach(socket, room, room.host, true, ack);
@@ -153,11 +161,13 @@ io.on('connection', socket => {
     room.index++;
     room.answers.clear();
     room.points.clear();
-    room.buzzer = null;
+    room.order = 0;
     room.phase = 'question';
     const milliseconds = room.questions[room.index].seconds * 1000;
     room.deadline = Date.now() + milliseconds;
     room.timer = setTimeout(() => finish(room), milliseconds);
+    room.clueAt = room.deadline - milliseconds / 2;
+    if (room.questions[room.index].hint) room.clueTimer = setTimeout(() => publish(room), milliseconds / 2);
     publish(room);
   });
 
@@ -171,9 +181,22 @@ io.on('connection', socket => {
     }
     const q = room.questions[room.index];
     if (!Number.isInteger(data.choice) || !q.options[data.choice]) return ack({ error: 'Choose an answer.' });
-    if (room.answers.has(player.token)) return ack({ error: 'Your answer is already locked.' });
-    room.answers.set(player.token, { choice: data.choice, at: now });
-    if (q.kind === 'buzzer' && !room.buzzer) room.buzzer = player.name;
+    const previous = room.answers.get(player.token);
+    if (previous?.locked) return ack({ error: 'Your answer is already locked.' });
+    const retry = q.kind === 'retry';
+    if (retry && data.lock === true && !previous) return ack({ error: 'Choose an answer first.' });
+    if (retry && previous?.choice === data.choice) {
+      if (data.lock !== true) return ack({ error: 'Choose a different answer or lock this one.' });
+      previous.locked = true;
+    } else {
+      room.answers.set(player.token, {
+        choice: data.choice,
+        at: now,
+        order: ++room.order,
+        locked: !retry || Boolean(previous),
+        bold: q.kind === 'confidence' && data.bold === true
+      });
+    }
     ack({ ok: true });
     publish(room);
     finishIfEveryoneAnswered(room);
@@ -191,6 +214,7 @@ io.on('connection', socket => {
     }
     if (host) {
       clearTimeout(room.timer);
+      clearTimeout(room.clueTimer);
       io.to(pin).emit('ended', 'The host closed the game.');
       rooms.delete(pin);
       return;
@@ -216,6 +240,7 @@ setInterval(() => {
   for (const [pin, room] of rooms) {
     if (Date.now() < room.expires) continue;
     clearTimeout(room.timer);
+    clearTimeout(room.clueTimer);
     io.to(pin).emit('ended', 'This room expired. Start a fresh game to play again.');
     io.in(pin).disconnectSockets();
     rooms.delete(pin);

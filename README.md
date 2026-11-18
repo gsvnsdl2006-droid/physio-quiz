@@ -1,6 +1,6 @@
 # Physio Quest LIVE
 
-A live multiplayer physiotherapy quiz built for groups. The host runs the game from one screen, and up to 100 players can join on their phones. The original 30-question bank includes anatomy, movement, riddles, visual clues, and Lebanese Arabic rounds.
+A live multiplayer physiotherapy quiz built for groups. The host runs the game from one screen, and up to 100 players can join on their phones. The 30-question bank covers physiotherapy case reasoning, biomechanics, exercise dosing, and movement-data interpretation.
 
 ## Run the game
 
@@ -17,18 +17,20 @@ Open `http://localhost:3000`. Choose **Host game** and pick 10, 20, or 30 questi
 
 1. The host shares the six-digit PIN or invite link.
 2. Each player enters a nickname and taps **I’m ready**. Once all connected players are ready, the host can start.
-3. Everyone can lock in one answer. The answer, explanation, and live scores appear at the deadline or when all connected players have answered.
-4. The host advances when the group is ready. The final leaderboard shows shared places for ties.
+3. Everyone can answer. Unless a round says otherwise, correct answers score in order of receipt: 1,000, 900, 800, and so on down to 100 from tenth place onward. Incorrect answers do not take a rank.
+4. The correct answer, explanation, and each player's point breakdown appear when time runs out or all connected players lock an answer. The host advances when the group is ready.
 
-| Round | Points for a correct answer |
+| Round | Rule |
 | --- | --- |
-| Regular, visual, riddle, and Lebanese Arabic | 1,000 |
-| Speed | 1,000, plus 1,000 for the first correct answer |
-| Buzzer | 1,000, plus 500 for the first correct answer. The first player to lock any answer is announced during the round. |
-| Beat the fuse | 1,000, plus 500 for answering within the first 70% of the timer |
-| Final Boss | 2,000 |
+| Movement Lab | Explore comparison charts or scrub through movement frames before answering. |
+| Double Down | Optional +400 for a correct answer or −200 for a wrong answer. |
+| Clue Drop | A clue appears halfway through. Correct answers before it drops earn +200. |
+| Second Look | Keep the first choice or change it once. The first choice keeps its timestamp if you lock it or let the timer expire. A change takes the timestamp of the new choice and locks it. |
+| Think Tank | Every correct answer earns 700 base points regardless of speed. |
+| Beat the Fuse | Correct answers in the first 70% of the timer earn +300. |
+| Final Boss | Correct answers earn double the ranked base points. |
 
-A streak adds 200 points to each correct answer from the third in a row. Incorrect or missed answers reset the streak.
+A streak adds 200 points to each correct answer from the third in a row. Incorrect or missed answers reset the streak. Tap **Sound off** to enable cues on your device.
 
 Players and the host can reload the same tab to reconnect. New seats can join before the first question. Rooms live in memory on a single server instance and expire after three hours or when the server restarts. Edit `questions.json` to customize the bank.
 

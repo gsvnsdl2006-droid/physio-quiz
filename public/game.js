@@ -7,14 +7,53 @@ const announcement = document.querySelector('#announcement');
 const rules = document.querySelector('#rules');
 const numbers = new Intl.NumberFormat();
 const kinds = {
-  classic: ['Classic', 'Correct answer +1,000'],
-  speed: ['⚡ Speed', 'First correct answer gets +1,000 extra'],
-  riddle: ['🧩 Riddle', 'Solve the clue'],
-  visual: ['👀 Visual', 'Look for the visual clue'],
-  bomb: ['💣 Beat the fuse', 'Correct in the first 70% gets +500 extra'],
-  lebanese: ['🇱🇧 Lebanese round', 'Answer the question in Lebanese Arabic'],
-  buzzer: ['🔔 Buzzer', 'First correct answer gets +500 extra'],
-  final: ['🏆 Final Boss', 'Correct answer +2,000']
+  visual: ['Movement Lab', 'Compare the visual evidence before you answer'],
+  confidence: ['Double Down', 'Play safe or add +400 for a correct answer and −200 for a miss'],
+  clue: ['Clue Drop', 'A clue appears halfway through. Answer correctly before it drops for +200'],
+  retry: ['Second Look', 'Keep your first answer or change it once. A change resets your place in the speed race'],
+  steady: ['Think Tank', 'Every correct answer earns 700 base points, regardless of speed'],
+  bomb: ['Beat the Fuse', 'Lock a correct answer in the first 70% of the clock for +300'],
+  final: ['Final Boss', 'Correct answers earn double the ranked base points']
+};
+const soundButton = document.querySelector('#sound');
+let audio;
+let soundOn = false;
+let lastBeep;
+let compare = 'all';
+let bold = false;
+
+function cue(notes) {
+  if (!soundOn || audio?.state !== 'running') return;
+  for (const [index, pitch] of notes.entries()) {
+    const at = audio.currentTime + index * 0.115;
+    const tone = audio.createOscillator();
+    const volume = audio.createGain();
+    tone.frequency.value = pitch;
+    volume.gain.setValueAtTime(0.001, at);
+    volume.gain.exponentialRampToValueAtTime(0.085, at + 0.02);
+    volume.gain.exponentialRampToValueAtTime(0.001, at + 0.13);
+    tone.connect(volume).connect(audio.destination);
+    tone.start(at);
+    tone.stop(at + 0.14);
+  }
+}
+
+soundButton.onclick = async () => {
+  if (soundOn) {
+    soundOn = false;
+    await audio.suspend();
+  } else {
+    try {
+      audio ??= new AudioContext();
+      await audio.resume();
+      soundOn = true;
+    } catch {
+      return toast('Sound is unavailable in this browser.');
+    }
+  }
+  soundButton.textContent = soundOn ? 'Sound on' : 'Sound off';
+  soundButton.setAttribute('aria-pressed', String(soundOn));
+  cue([440, 660]);
 };
 let mode = 'join';
 let state;
@@ -98,32 +137,96 @@ function lobby(s) {
     </section>`;
 }
 
+function motionStudy(visual) {
+  const active = compare === 'all' ? 0 : Number(compare);
+  const frame = visual.frames[active];
+  const parts = frame.joints.slice(1).map(([x, y], index) => {
+    const [fromX, fromY] = frame.joints[index];
+    return `<span class="limb" style="left:${fromX}px;top:${fromY}px;width:${Math.hypot(x - fromX, y - fromY)}px;transform:rotate(${Math.atan2(y - fromY, x - fromX)}rad)"></span>`;
+  });
+  return `<figure class="lab motion">
+    <figcaption>${escape(visual.title)}</figcaption>
+    <div class="pose" role="img" aria-label="Frame ${active + 1}. Knee is ${frame.gap} diagram units ahead of the planted ankle.">
+      <span class="plumb"></span>
+      ${parts.join('')}
+      ${frame.joints.map(([x, y], index) =>
+        `<span class="joint joint-${index}" style="left:${x}px;top:${y}px"></span>`).join('')}
+    </div>
+    <div class="lab-switch" aria-label="Motion frames">
+      ${visual.frames.map(({ name }, index) =>
+        `<button class="secondary" data-action="compare" data-choice="${index}" aria-pressed="${active === index}">${index + 1} · ${escape(name)}</button>`).join('')}
+    </div>
+    <p class="motion-key">Purple dot · Knee &nbsp; Lime dot · Planted ankle</p>
+  </figure>`;
+}
+
+function movementLab(visual) {
+  if (visual.type === 'pose') return motionStudy(visual);
+  const entries = Object.entries(visual.sets);
+  const max = Math.max(...entries.flatMap(([, values]) => values));
+  const selected = entries.map(([name, values], index) => ({ name, values, index }))
+    .filter(({ index }) => compare === 'all' || compare === String(index));
+  return `<figure class="lab">
+    <figcaption>${escape(visual.title)}</figcaption>
+    <div class="lab-switch" aria-label="Chart comparison">
+      ${[['all', 'Compare all'], ...entries.map(([name], index) => [String(index), name])].map(([id, label]) =>
+        `<button class="secondary" data-action="compare" data-choice="${id}" aria-pressed="${compare === id}">${escape(label)}</button>`).join('')}
+    </div>
+    <div class="lab-plot">
+      ${visual.labels.map((label, column) => `<div class="lab-group">
+        <div class="lab-bars">${selected.map(({ name, values, index }) =>
+          `<div class="lab-trial trial-${index}" aria-label="${escape(name)} ${escape(label)}: ${values[column]}">
+            <b>${values[column]}</b><span style="--size:${values[column] / max * 85}%"></span>
+          </div>`).join('')}</div>
+        <strong>${escape(label)}</strong>
+      </div>`).join('')}
+    </div>
+    <ul class="lab-legend">${selected.map(({ name, index }) => `<li class="trial-${index}">${escape(name)}</li>`).join('')}</ul>
+  </figure>`;
+}
+
+function pointLabel(points) {
+  return `${points >= 0 ? '+' : '−'}${numbers.format(Math.abs(points))}`;
+}
+
 function round(s) {
   const q = s.question;
-  const [kind, rule] = kinds[q.kind] || kinds.classic;
+  const [kind, rule] = kinds[q.kind];
   const revealed = s.phase === 'results';
   const live = !revealed && !s.host;
   const active = s.players.filter(p => p.connected).length;
+  const canAnswer = live && !s.locked && !lockedRequest && socket.connected;
+  const award = s.award;
   const correctChoice = revealed ? q.options[s.reveal.correct] : '';
   return `<section class="panel">
     <div class="meta"><p class="eyebrow">QUESTION ${s.index + 1} / ${s.total}</p>
       ${revealed ? '' : '<span class="clock" id="clock"></span>'}</div>
     ${revealed ? '' : `<progress id="timer" max="${q.seconds * 1000}" aria-label="Time remaining"></progress>`}
     <p>${kind} · ${rule}</p>
-    ${q.visual && !q.title.includes(q.visual) ? `<div class="visual" aria-hidden="true">${escape(q.visual)}</div>` : ''}
     <h1>${escape(q.title)}</h1>
+    ${q.visual ? movementLab(q.visual) : ''}
+    ${q.kind === 'clue' ? `<p class="round-callout">${q.hint ? `Clue · ${escape(q.hint)}` : 'Clue drops halfway through the timer.'}</p>` : ''}
+    ${q.kind === 'confidence' && live && !s.locked ? `<div class="round-callout actions">
+      <button class="secondary" data-action="bold" aria-pressed="${bold}" ${canAnswer ? '' : 'disabled'}>${bold ? 'Double Down active' : 'Double Down'}</button>
+      <span>${bold ? 'Risking 200 for a 400-point bonus' : 'Safe play selected'}</span>
+    </div>` : ''}
     <div class="options">${q.options.map((option, index) => {
       const selected = s.selected === index;
       const correct = revealed && s.reveal.correct === index;
       const type = correct ? 'correct' : selected ? (revealed ? 'wrong' : 'selected') : '';
-      return `<button class="choice ${type}" data-action="answer" data-choice="${index}" ${live && s.selected === null && !lockedRequest && socket.connected ? '' : 'disabled'}><span class="letter">${'ABCD'[index] || index + 1}</span>
+      return `<button class="choice ${type}" data-action="answer" data-choice="${index}" ${canAnswer && !selected ? '' : 'disabled'}><span class="letter">${'ABCD'[index] || index + 1}</span>
         <span>${escape(option)}${correct ? ' ✓' : ''}${selected ? '<small> · Your answer</small>' : ''}</span></button>`;
     }).join('')}</div>
+    ${canAnswer && q.kind === 'retry' && s.selected !== null ?
+      `<button class="secondary retry" data-action="lock">Lock this answer</button>` : ''}
     ${revealed ? `<div class="feedback">
-      <strong>${s.host ? 'Correct answer' : s.points ? `+${numbers.format(s.points)} points` : s.selected === null ? 'No answer submitted' : '0 points'}</strong>
+      <strong>${s.host ? 'Correct answer' : s.selected === null ? 'No answer submitted' : award ? `${pointLabel(award.points)} points` : '0 points'}</strong>
+      ${award?.base ? `<p class="breakdown">${award.rank ? `Correct answer #${award.rank} · ` : ''}${numbers.format(award.base)} base
+        ${award.bonuses.map(([label, points]) => ` · ${label} ${pointLabel(points)}`).join('')}</p>` : award?.bonuses.length ?
+        `<p class="breakdown">Double Down ${pointLabel(award.points)}</p>` : ''}
       <p>${escape(correctChoice)} · ${escape(s.reveal.explanation)}</p>
     </div>${s.host ? `<button class="primary" data-action="next">${s.index + 1 === s.total ? 'Show final standings' : 'Next question'}</button>` : '<p>Waiting for the host to continue.</p>'}` :
-      `<p>${s.selected !== null ? '✓ Answer locked. ' : ''}${s.answered} answered · ${active} connected${s.buzzer ? ` · ${escape(s.buzzer)} buzzed first` : ''}</p>`}
+      `<p>${s.locked ? '✓ Answer locked. ' : s.selected !== null ? 'Answer saved. Keep it or change it once. ' : ''}${s.answered} locked in · ${active} connected</p>`}
     </section>`;
 }
 
@@ -133,7 +236,7 @@ function finale(s) {
   return `<section class="panel">
     <p class="eyebrow">🏆 FINAL STANDINGS</p>
     <h1>Quest complete!</h1>
-    ${s.players[0]?.score ? `<h2>${leaders.map(p => escape(p.name)).join(', ')} ${leaders.length === 1 ? 'wins' : 'tie for first'}</h2><p>${numbers.format(leaders[0].score)} points</p>` : '<p>The points table is tied at zero.</p>'}
+    ${leaders.length && (leaders.length < s.players.length || leaders[0].score !== 0) ? `<h2>${leaders.map(p => escape(p.name)).join(', ')} ${leaders.length === 1 ? 'wins' : 'tie for first'}</h2><p>${numbers.format(leaders[0].score)} points</p>` : '<p>The points table is tied at zero.</p>'}
     ${me ? `<p>Your score · <strong>${numbers.format(me.score)} points</strong></p>` : ''}
     <button class="primary" data-action="leave">Back to home</button>
     </section>`;
@@ -163,7 +266,13 @@ function tick() {
   if (!progress || !state) return;
   const left = Math.max(0, state.deadline - Date.now() - clockOffset);
   progress.value = left;
-  document.querySelector('#clock').textContent = `${Math.ceil(left / 1000)}s`;
+  const seconds = Math.ceil(left / 1000);
+  document.querySelector('#clock').textContent = `${seconds}s`;
+  progress.classList.toggle('fuse', state.question.kind === 'bomb' && left <= progress.max * 0.3);
+  if (seconds > 0 && seconds <= 3 && lastBeep !== seconds) {
+    lastBeep = seconds;
+    cue([seconds === 1 ? 640 : 450]);
+  }
 }
 
 function request(event, data, callback) {
@@ -201,10 +310,19 @@ socket.on('disconnect', render);
 socket.on('state', next => {
   if (!seat || seat.pin !== next.pin) return;
   const changed = state?.phase !== next.phase || state?.index !== next.index;
+  if (state?.index !== next.index) {
+    compare = 'all';
+    bold = false;
+    lastBeep = undefined;
+  }
+  if (!changed && next.question?.hint && !state?.question?.hint) cue([540, 740]);
   state = next;
   clockOffset = next.now - Date.now();
   render();
   if (changed) {
+    if (next.phase === 'question') cue([392, 523]);
+    if (next.phase === 'results') cue(next.host || next.selected === next.reveal.correct ? [523, 659, 784] : [330, 247]);
+    if (next.phase === 'finished') cue([392, 523, 659, 784]);
     const message = {
       lobby: 'Joined the lobby',
       question: `Question ${next.index + 1}. ${next.question?.title}`,
@@ -258,6 +376,15 @@ app.addEventListener('click', async event => {
     return render();
   }
   if (action === 'leave') return leave();
+  if (action === 'compare') {
+    compare = choice;
+    return render();
+  }
+  if (action === 'bold') {
+    bold = !bold;
+    cue([bold ? 620 : 440]);
+    return render();
+  }
   if (action === 'copy') {
     const invite = new URL('/', location.href);
     invite.searchParams.set('pin', state.pin);
@@ -271,12 +398,14 @@ app.addEventListener('click', async event => {
   }
   if (!socket.connected) return toast('Reconnecting. Try again in a moment.');
   if (action === 'ready' || action === 'next') socket.emit(action);
-  if (action === 'answer' && !lockedRequest) {
+  if (['answer', 'lock'].includes(action) && !lockedRequest) {
     lockedRequest = true;
     render();
-    request('answer', { choice: Number(choice), index: state.index }, result => {
+    const lock = action === 'lock';
+    request('answer', { choice: lock ? state.selected : Number(choice), index: state.index, bold, lock }, result => {
       lockedRequest = false;
       if (result.error) toast(result.error);
+      else cue([490]);
       render();
     });
   }

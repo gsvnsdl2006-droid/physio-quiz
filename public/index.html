@@ -12,7 +12,10 @@
 <body>
   <header class="top">
     <a class="wordmark" href="/"><span class="mark" aria-hidden="true">✚</span> PHYSIO<span>QUEST</span></a>
-    <button id="open-rules" class="secondary">How to play</button>
+    <div class="actions">
+      <button id="sound" class="secondary" aria-pressed="false">Sound off</button>
+      <button id="open-rules" class="secondary">How to play</button>
+    </div>
   </header>
   <main id="app" aria-busy="true"></main>
   <p id="notice" role="status"></p>
@@ -23,14 +26,17 @@
     <h2 id="rules-title">How to play</h2>
     <ol class="steps">
       <li><strong>Join the room.</strong> Enter the host’s six-digit PIN and pick a nickname. Tap Ready when you’re set.</li>
-      <li><strong>Lock in an answer.</strong> Everyone gets one choice per question. The answer and explanation appear when the clock runs out or everyone connected has answered.</li>
-      <li><strong>Build your score.</strong> A correct answer earns 1,000 points. From your third consecutive correct answer, each correct answer adds 200 bonus points.</li>
+      <li><strong>Race for points.</strong> Correct answers score in the order the server receives them: 1,000, 900, 800, down to 100 from tenth place onward. Wrong answers never take a rank. Three or more correct in a row adds 200.</li>
+      <li><strong>Check the round card.</strong> Special rules appear before you answer. Everyone can score, and most rounds lock in one choice.</li>
     </ol>
     <dl class="bonuses">
-      <div><dt>⚡ Speed</dt><dd>First correct answer +1,000</dd></div>
-      <div><dt>🔔 Buzzer</dt><dd>First correct answer +500</dd></div>
-      <div><dt>💣 Beat the fuse</dt><dd>Correct in the first 70% of the timer +500</dd></div>
-      <div><dt>🏆 Final Boss</dt><dd>Correct answer earns 2,000 base points</dd></div>
+      <div><dt>Movement Lab</dt><dd>Inspect movement frames or compare trial data.</dd></div>
+      <div><dt>Double Down</dt><dd>Opt in for +400 on a correct answer or −200 on a wrong answer.</dd></div>
+      <div><dt>Clue Drop</dt><dd>Wait for a halfway clue or answer correctly before it drops for +200.</dd></div>
+      <div><dt>Second Look</dt><dd>Keep your first choice or change it once. A changed answer gets a new speed rank.</dd></div>
+      <div><dt>Think Tank</dt><dd>All correct answers earn 700 base points.</dd></div>
+      <div><dt>Beat the Fuse</dt><dd>Answer correctly in the first 70% for +300.</dd></div>
+      <div><dt>Final Boss</dt><dd>Correct answers earn double the ranked base points.</dd></div>
     </dl>
   </dialog>
 </body>

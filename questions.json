@@ -1,422 +1,607 @@
 [
   {
-    "kind": "classic",
-    "title": "Which organ pumps blood around your body?",
-    "options": [
-      "Lungs",
-      "Heart",
-      "Brain",
-      "Liver"
-    ],
-    "correct": 1,
-    "explanation": "The heart pumps blood.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "speed",
-    "title": "How many bones are in a typical adult human skeleton?",
-    "options": [
-      "106",
-      "206",
-      "306",
-      "406"
-    ],
-    "correct": 1,
-    "explanation": "Most adults have 206 bones.",
-    "seconds": 12,
-    "visual": null
-  },
-  {
-    "kind": "riddle",
-    "title": "I bend and straighten your arm, and I sit between your shoulder and wrist. Who am I?",
-    "options": [
-      "Knee",
-      "Elbow",
-      "Ankle",
-      "Hip"
-    ],
-    "correct": 1,
-    "explanation": "The elbow is the joint in the middle of the arm.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
     "kind": "visual",
-    "title": "🦴🦵 Which joint is between the thigh and lower leg?",
+    "title": "Both legs averaged similar peak force on a single-leg hop. Which athlete showed the biggest performance drop across three hops?",
     "options": [
-      "Hip",
-      "Ankle",
-      "Knee",
-      "Shoulder"
+      "Athlete A",
+      "Athlete B",
+      "Athlete C",
+      "All declined equally"
+    ],
+    "correct": 1,
+    "explanation": "B fell from 100 to 70 cm. The repeated trials reveal a drop that a single best effort misses.",
+    "seconds": 35,
+    "visual": {
+      "title": "Hop distance · cm",
+      "labels": [
+        "Hop 1",
+        "Hop 2",
+        "Hop 3"
+      ],
+      "sets": {
+        "Athlete A": [
+          98,
+          95,
+          91
+        ],
+        "Athlete B": [
+          100,
+          84,
+          70
+        ],
+        "Athlete C": [
+          94,
+          96,
+          94
+        ]
+      }
+    }
+  },
+  {
+    "kind": "confidence",
+    "title": "A runner’s knee pain appears only on downhill sections. Which comparison best tests whether slope is the trigger?",
+    "options": [
+      "Compare two different shoes on different hills",
+      "Repeat the same pace and distance on flat and downhill routes",
+      "Compare a sprint with a slow downhill walk",
+      "Change pace, surface and slope together"
+    ],
+    "correct": 1,
+    "explanation": "Changing one main variable makes it easier to interpret the response.",
+    "seconds": 30
+  },
+  {
+    "kind": "clue",
+    "title": "A climber struggles to pinch a key and compensate by bending the tip of the thumb. Which nerve supplies the muscle typically weak in this sign?",
+    "options": [
+      "Median nerve",
+      "Radial nerve",
+      "Ulnar nerve",
+      "Axillary nerve"
     ],
     "correct": 2,
-    "explanation": "The knee joins the thigh and lower leg.",
-    "seconds": 20,
-    "visual": "🦴"
+    "explanation": "This resembles Froment’s sign. Ulnar-innervated adductor pollicis is weak and flexor pollicis longus compensates.",
+    "seconds": 26,
+    "hint": "Think adductor pollicis."
   },
   {
-    "kind": "bomb",
-    "title": "💣 You have a sprained ankle. What is a sensible first step?",
+    "kind": "retry",
+    "title": "An athlete does 3 sets of 8 squats at 40 kg. Which change increases total external load by exactly 25% if everything else stays fixed?",
     "options": [
-      "Keep playing through pain",
-      "Rest from painful activity",
-      "Force a deep stretch",
-      "Run faster"
-    ],
-    "correct": 1,
-    "explanation": "Stop the activity and assess the injury.",
-    "seconds": 12,
-    "visual": null
-  },
-  {
-    "kind": "lebanese",
-    "title": "Ya zalame, iza 3am yewja3ak dahrek, min byese3dak bel rehabilitation?",
-    "options": [
-      "Dentist",
-      "Physiotherapist",
-      "Pilot",
-      "Chef"
-    ],
-    "correct": 1,
-    "explanation": "A physiotherapist can help with movement and rehabilitation.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "classic",
-    "title": "Which muscle mainly straightens the knee?",
-    "options": [
-      "Quadriceps",
-      "Biceps brachii",
-      "Deltoid",
-      "Triceps brachii"
+      "3 sets of 10 at 40 kg",
+      "3 sets of 8 at 48 kg",
+      "4 sets of 8 at 40 kg",
+      "3 sets of 9 at 40 kg"
     ],
     "correct": 0,
-    "explanation": "The quadriceps extends the knee.",
-    "seconds": 20,
-    "visual": null
+    "explanation": "The starting volume is 960 kg. Thirty repetitions at 40 kg gives 1,200 kg, a 25% increase.",
+    "seconds": 30
   },
   {
-    "kind": "buzzer",
-    "title": "🔔 Which body system carries messages between brain and muscles?",
+    "kind": "steady",
+    "title": "Two athletes report the same pain score. Which extra detail best helps you compare how sensitive their symptoms are to activity?",
     "options": [
-      "Digestive",
-      "Nervous",
-      "Respiratory",
-      "Urinary"
-    ],
-    "correct": 1,
-    "explanation": "Nerves carry signals.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "riddle",
-    "title": "I connect muscle to bone. What am I?",
-    "options": [
-      "Ligament",
-      "Tendon",
-      "Cartilage",
-      "Nerve"
-    ],
-    "correct": 1,
-    "explanation": "Tendons connect muscles to bones.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "visual",
-    "title": "🫁 What do these organs help you do?",
-    "options": [
-      "Digest",
-      "Breathe",
-      "Hear",
-      "Balance"
-    ],
-    "correct": 1,
-    "explanation": "Lungs help exchange oxygen and carbon dioxide.",
-    "seconds": 20,
-    "visual": "🦴"
-  },
-  {
-    "kind": "speed",
-    "title": "Which is generally an aerobic activity?",
-    "options": [
-      "Walking briskly",
-      "Holding your breath",
-      "Sitting still",
-      "Sleeping"
-    ],
-    "correct": 0,
-    "explanation": "Brisk walking can train aerobic fitness.",
-    "seconds": 12,
-    "visual": null
-  },
-  {
-    "kind": "lebanese",
-    "title": "Chou ya3ne “3adale” bel English?",
-    "options": [
-      "Bone",
-      "Muscle",
-      "Joint",
-      "Nerve"
-    ],
-    "correct": 1,
-    "explanation": "3adale means muscle.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "classic",
-    "title": "What is the main function of ligaments?",
-    "options": [
-      "Connect bones at joints",
-      "Pump blood",
-      "Digest food",
-      "Carry oxygen"
-    ],
-    "correct": 0,
-    "explanation": "Ligaments connect bone to bone.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "bomb",
-    "title": "💣 Someone feels dizzy during exercise. Best action?",
-    "options": [
-      "Keep pushing",
-      "Stop and tell an adult",
-      "Sprint",
-      "Ignore it"
-    ],
-    "correct": 1,
-    "explanation": "Stop exercise and seek help.",
-    "seconds": 12,
-    "visual": null
-  },
-  {
-    "kind": "visual",
-    "title": "🧠 Which organ controls voluntary movement?",
-    "options": [
-      "Liver",
-      "Brain",
-      "Kidney",
-      "Stomach"
-    ],
-    "correct": 1,
-    "explanation": "The brain coordinates voluntary movement.",
-    "seconds": 20,
-    "visual": "🦴"
-  },
-  {
-    "kind": "riddle",
-    "title": "I am the largest bone in the human body. Who am I?",
-    "options": [
-      "Humerus",
-      "Femur",
-      "Radius",
-      "Tibia"
-    ],
-    "correct": 1,
-    "explanation": "The femur is the largest bone.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "classic",
-    "title": "What does ROM mean in physiotherapy?",
-    "options": [
-      "Rate of muscle",
-      "Range of motion",
-      "Rest on mat",
-      "Rotation of muscle"
-    ],
-    "correct": 1,
-    "explanation": "ROM stands for range of motion.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "lebanese",
-    "title": "Iza rekbetak 3am touja3ak bel football, chou a7san ta3mol?",
-    "options": [
-      "Tkammel w tetjahal",
-      "Twa2ef w te7ke ma3 mas2oul",
-      "Terkod aktar",
-      "Tnott 3layha"
-    ],
-    "correct": 1,
-    "explanation": "Stop painful activity and inform a responsible adult.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "speed",
-    "title": "What does the Achilles tendon connect?",
-    "options": [
-      "Calf muscles to heel",
-      "Shoulder to elbow",
-      "Hand to wrist",
-      "Neck to skull"
-    ],
-    "correct": 0,
-    "explanation": "The Achilles tendon attaches calf muscles to the heel.",
-    "seconds": 12,
-    "visual": null
-  },
-  {
-    "kind": "visual",
-    "title": "🦶 Which part of the body contains the heel?",
-    "options": [
-      "Hand",
-      "Foot",
-      "Elbow",
-      "Shoulder"
-    ],
-    "correct": 1,
-    "explanation": "The heel is part of the foot.",
-    "seconds": 20,
-    "visual": "🦴"
-  },
-  {
-    "kind": "buzzer",
-    "title": "🔔 Which muscle helps bend your elbow?",
-    "options": [
-      "Biceps brachii",
-      "Quadriceps",
-      "Gluteus maximus",
-      "Gastrocnemius"
-    ],
-    "correct": 0,
-    "explanation": "Biceps brachii helps flex the elbow.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "riddle",
-    "title": "I cushion the ends of bones in many joints. What am I?",
-    "options": [
-      "Cartilage",
-      "Skin",
-      "Tendon",
-      "Hair"
-    ],
-    "correct": 0,
-    "explanation": "Articular cartilage helps smooth joint movement.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "classic",
-    "title": "What is balance training useful for?",
-    "options": [
-      "Improving stability",
-      "Changing eye color",
-      "Growing extra bones",
-      "Stopping breathing"
-    ],
-    "correct": 0,
-    "explanation": "Balance training helps postural control.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "lebanese",
-    "title": "Chou bya3mol l physio?",
-    "options": [
-      "Byesaa3ed bel 7arake w rehabilitation",
-      "Byesla7 telephone",
-      "Byekhteber nazar",
-      "Byetbokh"
-    ],
-    "correct": 0,
-    "explanation": "Physiotherapists help restore movement and function.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "bomb",
-    "title": "💣 After a fall, a scout cannot stand and has severe pain. What should friends do?",
-    "options": [
-      "Pull them up",
-      "Get adult/medical help",
-      "Make them run",
-      "Massage forcefully"
-    ],
-    "correct": 1,
-    "explanation": "Avoid moving them unnecessarily and get help.",
-    "seconds": 12,
-    "visual": null
-  },
-  {
-    "kind": "visual",
-    "title": "🦴 Which structure protects the brain?",
-    "options": [
-      "Rib cage",
-      "Skull",
-      "Pelvis",
-      "Kneecap"
-    ],
-    "correct": 1,
-    "explanation": "The skull surrounds and protects the brain.",
-    "seconds": 20,
-    "visual": "🦴"
-  },
-  {
-    "kind": "riddle",
-    "title": "I am a muscle that helps you breathe and sits below your lungs. Who am I?",
-    "options": [
-      "Diaphragm",
-      "Hamstring",
-      "Biceps",
-      "Deltoid"
-    ],
-    "correct": 0,
-    "explanation": "The diaphragm is the main breathing muscle.",
-    "seconds": 20,
-    "visual": null
-  },
-  {
-    "kind": "speed",
-    "title": "How many chambers does a human heart have?",
-    "options": [
-      "Two",
-      "Three",
-      "Four",
-      "Five"
+      "Which athlete is taller",
+      "Their favorite exercise",
+      "How much activity triggers symptoms and how long they take to settle",
+      "The color of their shoes"
     ],
     "correct": 2,
-    "explanation": "The heart has four chambers.",
-    "seconds": 12,
-    "visual": null
+    "explanation": "The load needed to provoke symptoms and the recovery time describe irritability more usefully than a single score.",
+    "seconds": 30
   },
   {
-    "kind": "lebanese",
-    "title": "Ya 3amme, iza 3andak “tashannoj” ba3d l sport, chou a7san?",
+    "kind": "bomb",
+    "title": "A player can push down strongly through the foot, but repeatedly catches their toes when walking. Which action is most directly limited?",
     "options": [
-      "Terte7 w teshrob may",
-      "Tzid l intensity",
-      "Tetjahal l waja3",
-      "Twa2ef l may"
+      "Ankle plantarflexion",
+      "Ankle dorsiflexion",
+      "Knee extension",
+      "Hip adduction"
+    ],
+    "correct": 1,
+    "explanation": "Dorsiflexion lifts the front of the foot so the toes clear the ground during swing.",
+    "seconds": 20
+  },
+  {
+    "kind": "visual",
+    "title": "Scrub through a step-down. During which frame is the knee farthest forward relative to the planted ankle?",
+    "options": [
+      "Frame 1 · Start",
+      "Frame 2 · Lower",
+      "Frame 3 · Tap",
+      "The same in all three"
+    ],
+    "correct": 2,
+    "explanation": "At the tap, the knee is farthest forward of the planted ankle. The exercise can look very different at different points in the repetition.",
+    "seconds": 35,
+    "visual": {
+      "type": "pose",
+      "title": "Step-down motion study",
+      "frames": [
+        {
+          "name": "Start",
+          "gap": 5,
+          "joints": [
+            [
+              96,
+              22
+            ],
+            [
+              94,
+              56
+            ],
+            [
+              100,
+              106
+            ],
+            [
+              95,
+              152
+            ],
+            [
+              118,
+              157
+            ]
+          ]
+        },
+        {
+          "name": "Lower",
+          "gap": 24,
+          "joints": [
+            [
+              116,
+              38
+            ],
+            [
+              98,
+              69
+            ],
+            [
+              119,
+              119
+            ],
+            [
+              95,
+              152
+            ],
+            [
+              118,
+              157
+            ]
+          ]
+        },
+        {
+          "name": "Tap",
+          "gap": 42,
+          "joints": [
+            [
+              132,
+              54
+            ],
+            [
+              94,
+              87
+            ],
+            [
+              137,
+              125
+            ],
+            [
+              95,
+              152
+            ],
+            [
+              118,
+              157
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "kind": "confidence",
+    "title": "A student raises their straight leg. They feel a familiar pull that changes when their ankle moves while the hip stays still. What is the most defensible conclusion?",
+    "options": [
+      "It proves a disc herniation",
+      "It identifies a torn hamstring",
+      "The response may involve neural sensitivity and needs context",
+      "The ankle is the source of all symptoms"
+    ],
+    "correct": 2,
+    "explanation": "Changing a distant joint can alter neural loading, but the response alone cannot establish a diagnosis.",
+    "seconds": 30
+  },
+  {
+    "kind": "clue",
+    "title": "A lifter’s shoulder blade lifts away from the rib cage during a wall push. Which muscle normally helps keep it against the chest wall?",
+    "options": [
+      "Upper trapezius",
+      "Serratus anterior",
+      "Latissimus dorsi",
+      "Infraspinatus"
+    ],
+    "correct": 1,
+    "explanation": "Serratus anterior protracts and helps hold the scapula against the thorax.",
+    "seconds": 26,
+    "hint": "Its nerve is the long thoracic nerve."
+  },
+  {
+    "kind": "retry",
+    "title": "A patient’s best knee flexion measures 115° today and 118° next time. Your procedure can vary by about 5°. What should you conclude?",
+    "options": [
+      "There is a definite 3° improvement",
+      "The second measurement must be wrong",
+      "The change alone is too small to separate from measurement variation",
+      "They lost 3° of flexion"
+    ],
+    "correct": 2,
+    "explanation": "An apparent change smaller than the expected variation should be interpreted cautiously.",
+    "seconds": 30
+  },
+  {
+    "kind": "confidence",
+    "title": "An athlete completes a side plank for 60 seconds on the right and 45 on the left. What percentage of the right-side time is the left-side time?",
+    "options": [
+      "25%",
+      "67%",
+      "75%",
+      "80%"
+    ],
+    "correct": 2,
+    "explanation": "45 ÷ 60 = 0.75, so the left-side time is 75% of the right.",
+    "seconds": 30
+  },
+  {
+    "kind": "visual",
+    "title": "Force was measured at three points during each landing. Which trial reached its highest force earliest?",
+    "options": [
+      "Trial A",
+      "Trial B",
+      "Trial C",
+      "All peaked at the same time"
     ],
     "correct": 0,
-    "explanation": "Rest and hydration can help with common exercise cramps.",
-    "seconds": 20,
-    "visual": null
+    "explanation": "Trial A was highest at its first sample, 50 ms. A peak’s timing can differ even when peak values are similar.",
+    "seconds": 35,
+    "visual": {
+      "title": "Landing force · N",
+      "labels": [
+        "50 ms",
+        "100 ms",
+        "150 ms"
+      ],
+      "sets": {
+        "Trial A": [
+          920,
+          670,
+          420
+        ],
+        "Trial B": [
+          420,
+          940,
+          610
+        ],
+        "Trial C": [
+          390,
+          610,
+          910
+        ]
+      }
+    }
+  },
+  {
+    "kind": "steady",
+    "title": "A patient’s maximum walking distance improves, but they still avoid the stairs at home. Which outcome best reflects their original goal?",
+    "options": [
+      "Their resting heart rate",
+      "Whether they can climb their home stairs with acceptable symptoms",
+      "The therapist’s estimate of quadriceps size",
+      "The clinic’s longest hallway lap"
+    ],
+    "correct": 1,
+    "explanation": "A task relevant to the patient’s daily life directly measures progress toward their goal.",
+    "seconds": 30
+  },
+  {
+    "kind": "bomb",
+    "title": "Why does holding the same dumbbell farther from the elbow make an isometric curl harder when the forearm stays horizontal?",
+    "options": [
+      "The weight gets heavier",
+      "The lever arm increases",
+      "Gravity changes direction",
+      "The biceps stops contracting"
+    ],
+    "correct": 1,
+    "explanation": "External torque equals force multiplied by its perpendicular distance from the axis.",
+    "seconds": 20
+  },
+  {
+    "kind": "clue",
+    "title": "A runner has trouble lowering slowly from a heel raise. What kind of calf contraction controls the descent?",
+    "options": [
+      "Concentric",
+      "Isometric",
+      "Eccentric",
+      "Passive"
+    ],
+    "correct": 2,
+    "explanation": "The calf produces tension while lengthening as the heel lowers.",
+    "seconds": 26,
+    "hint": "The muscle is active while getting longer."
+  },
+  {
+    "kind": "retry",
+    "title": "An athlete moves from 2 sessions of 30 minutes to 3 sessions of 25 minutes in a week. What happens to weekly exercise time?",
+    "options": [
+      "Drops by 5 minutes",
+      "Stays the same",
+      "Rises by 15 minutes",
+      "Rises by 25 minutes"
+    ],
+    "correct": 2,
+    "explanation": "The original total is 60 minutes and the new total is 75 minutes.",
+    "seconds": 30
+  },
+  {
+    "kind": "visual",
+    "title": "Which plan increased weekly running time the most between Weeks 1 and 3?",
+    "options": [
+      "Plan A",
+      "Plan B",
+      "Plan C",
+      "All increased equally"
+    ],
+    "correct": 0,
+    "explanation": "Plan A rose from 40 to 65 minutes, a gain of 25 minutes. B gained 10 and C gained none.",
+    "seconds": 35,
+    "visual": {
+      "title": "Running time · min per week",
+      "labels": [
+        "Week 1",
+        "Week 2",
+        "Week 3"
+      ],
+      "sets": {
+        "Plan A": [
+          40,
+          50,
+          65
+        ],
+        "Plan B": [
+          50,
+          55,
+          60
+        ],
+        "Plan C": [
+          60,
+          65,
+          60
+        ]
+      }
+    }
+  },
+  {
+    "kind": "confidence",
+    "title": "In a movement screen, a runner’s knee drifts inward during a step-down. Which statement is best supported?",
+    "options": [
+      "It proves a hip muscle is weak",
+      "It confirms a ligament injury",
+      "It is an observed movement pattern worth exploring with more context",
+      "It predicts exactly when they will get injured"
+    ],
+    "correct": 2,
+    "explanation": "A single observation describes movement. It does not establish the cause or predict an injury on its own.",
+    "seconds": 30
+  },
+  {
+    "kind": "clue",
+    "title": "During walking with a single cane to unload a sore left hip, which hand typically holds the cane?",
+    "options": [
+      "Left",
+      "Right",
+      "Either hand has the same mechanical effect",
+      "Both hands together"
+    ],
+    "correct": 1,
+    "explanation": "A cane in the opposite hand can help reduce the demand on the hip abductors during stance.",
+    "seconds": 26,
+    "hint": "Think about the opposite side from the sore hip."
+  },
+  {
+    "kind": "steady",
+    "title": "A patient can lift more weight than last month, but their symptoms and daily activities have not changed. Which conclusion fits the data?",
+    "options": [
+      "Strength improved in the tested task",
+      "The pain will definitely improve next week",
+      "They no longer need any support",
+      "Their walking definitely improved"
+    ],
+    "correct": 0,
+    "explanation": "The result supports improvement in the tested task. Other outcomes need their own measures.",
+    "seconds": 30
+  },
+  {
+    "kind": "visual",
+    "title": "Which rider shows the largest increase in heart rate from rest to minute 6?",
+    "options": [
+      "Rider A",
+      "Rider B",
+      "Rider C",
+      "All increased equally"
+    ],
+    "correct": 1,
+    "explanation": "B rose by 54 beats per minute, compared with 40 for A and 35 for C.",
+    "seconds": 35,
+    "visual": {
+      "title": "Heart rate · beats/min",
+      "labels": [
+        "Rest",
+        "Min 3",
+        "Min 6"
+      ],
+      "sets": {
+        "Rider A": [
+          72,
+          95,
+          112
+        ],
+        "Rider B": [
+          68,
+          97,
+          122
+        ],
+        "Rider C": [
+          78,
+          101,
+          113
+        ]
+      }
+    }
+  },
+  {
+    "kind": "bomb",
+    "title": "A bridge is held motionless at the top for 15 seconds. What best describes the action of the hip extensors during the hold?",
+    "options": [
+      "Concentric",
+      "Eccentric",
+      "Isometric",
+      "No muscle tension"
+    ],
+    "correct": 2,
+    "explanation": "They produce tension while the hip angle stays approximately constant.",
+    "seconds": 20
+  },
+  {
+    "kind": "retry",
+    "title": "A runner times the same 400 m route. Their average time changes from 100 seconds to 90. By what percentage did completion time decrease?",
+    "options": [
+      "9%",
+      "10%",
+      "11%",
+      "20%"
+    ],
+    "correct": 1,
+    "explanation": "The reduction is 10 seconds divided by the original 100 seconds, or 10%.",
+    "seconds": 30
+  },
+  {
+    "kind": "clue",
+    "title": "Why does sitting down slowly generally require the quadriceps to work even though the knee is bending?",
+    "options": [
+      "They are shortening to bend the knee",
+      "They are lengthening to control knee flexion",
+      "They pull the hip into extension",
+      "They stop producing force"
+    ],
+    "correct": 1,
+    "explanation": "The quadriceps generate knee extension torque while lengthening to control the descent.",
+    "seconds": 26,
+    "hint": "Think of a brake on the way down."
+  },
+  {
+    "kind": "confidence",
+    "title": "A study reports that a test is highly sensitive for a particular condition. Which interpretation is most accurate?",
+    "options": [
+      "Most people with the condition test positive",
+      "Most positive results prove the condition",
+      "Most people without it test negative",
+      "A positive result always identifies the cause"
+    ],
+    "correct": 0,
+    "explanation": "Sensitivity is the proportion of people with the condition who test positive.",
+    "seconds": 30
+  },
+  {
+    "kind": "visual",
+    "title": "An athlete rates symptoms right after exercise and later that day. Which session had the largest increase after the immediate check?",
+    "options": [
+      "Session A",
+      "Session B",
+      "Session C",
+      "All increased equally"
+    ],
+    "correct": 2,
+    "explanation": "C rose from 2 to 6 between the immediate check and evening, the largest increase.",
+    "seconds": 35,
+    "visual": {
+      "title": "Symptoms · self-rating out of 10",
+      "labels": [
+        "Before",
+        "After",
+        "Evening"
+      ],
+      "sets": {
+        "Session A": [
+          2,
+          5,
+          3
+        ],
+        "Session B": [
+          2,
+          3,
+          4
+        ],
+        "Session C": [
+          2,
+          2,
+          6
+        ]
+      }
+    }
+  },
+  {
+    "kind": "steady",
+    "title": "What’s the best way to make a repeated single-leg balance test comparable across visits?",
+    "options": [
+      "Use whatever surface is available",
+      "Keep footwear, surface, instructions and timing consistent",
+      "Change the tested leg each time",
+      "Keep the best attempt secret"
+    ],
+    "correct": 1,
+    "explanation": "Standardized test conditions reduce variation unrelated to actual change.",
+    "seconds": 30
+  },
+  {
+    "kind": "bomb",
+    "title": "An athlete walks at 5 km/h for 12 minutes. How far do they cover?",
+    "options": [
+      "0.6 km",
+      "1 km",
+      "1.2 km",
+      "2.4 km"
+    ],
+    "correct": 1,
+    "explanation": "Twelve minutes is one-fifth of an hour. At 5 km/h that is 1 km.",
+    "seconds": 20
+  },
+  {
+    "kind": "clue",
+    "title": "A runner says ‘ركبتي بتوجعني بس بالنزلة’. Which task is the closest clinic comparison to their complaint?",
+    "options": [
+      "A supported step-down",
+      "A seated handgrip test",
+      "A calf stretch lying down",
+      "An upper-body push-up"
+    ],
+    "correct": 0,
+    "explanation": "A step-down simulates lowering the body, a key demand when walking downhill.",
+    "seconds": 26,
+    "hint": "بالنزلة means on the way down."
   },
   {
     "kind": "final",
-    "title": "🏆 FINAL BOSS: Which statement best describes physiotherapy?",
+    "title": "A runner’s 6-minute walk improves from 420 m to 465 m. With your protocol, changes under 30 m can reflect measurement variability. The runner still avoids their target hill. What can you conclude?",
     "options": [
-      "Only massage",
-      "Movement, rehabilitation and prevention",
-      "Only surgery",
-      "Only X-rays"
+      "They are definitely ready for the hill",
+      "The walk test suggests improved capacity, and hill tolerance still needs its own assessment",
+      "The walk test change is under 30 m",
+      "The walking data prove their pain is gone"
     ],
     "correct": 1,
-    "explanation": "Physiotherapy supports movement, function and recovery.",
-    "seconds": 20,
-    "visual": null
+    "explanation": "The 45 m gain exceeds the stated variability threshold, but level walking and hill tolerance measure different tasks.",
+    "seconds": 40
   }
 ]

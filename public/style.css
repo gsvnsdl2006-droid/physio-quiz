@@ -91,3 +91,50 @@ dd { color: var(--quiet); margin: 0; }
   .top { min-height: 68px; }
   .top button { padding-inline: 9px; }
 }
+
+.top .actions { gap: 8px; justify-content: flex-end; }
+.secondary[aria-pressed="true"] { border-color: var(--lime); color: var(--lime); }
+.round-callout, .lab {
+  background: #13192d;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  margin: 16px 0;
+}
+.breakdown { font-size: .9rem; color: var(--lime); }
+.retry { margin: -8px 0 14px; }
+progress.fuse { accent-color: #ff9dbe; }
+.lab figcaption { font-weight: 850; margin-bottom: 10px; }
+.lab-switch, .lab-legend { display: flex; gap: 7px; flex-wrap: wrap; }
+.lab-switch button { padding: 5px 8px; font-size: .8rem; }
+.lab-plot { display: grid; grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column; gap: 5px; margin-top: 12px; }
+.lab-group { text-align: center; font-size: .74rem; }
+.lab-bars { height: 96px; display: flex; align-items: stretch; justify-content: center; gap: 3px; border-bottom: 1px solid var(--line); }
+.lab-trial { min-width: 0; width: 28%; display: flex; justify-content: end; align-items: center; flex-direction: column; gap: 1px; }
+.lab-trial b { font-size: .68rem; }
+.lab-trial span { height: var(--size); width: 78%; background: var(--trial); border-radius: 4px 4px 0 0; }
+.trial-0 { --trial: #d9fb77; }
+.trial-1 { --trial: #c9b8ff; }
+.trial-2 { --trial: #72e2e9; }
+.lab-legend { padding: 0; list-style: none; margin: 8px 0 0; font-size: .76rem; }
+.lab-legend li::before { display: inline-block; content: ''; background: var(--trial); border-radius: 50%; width: .65em; height: .65em; margin-right: 4px; }
+.pose {
+  position: relative;
+  width: 200px;
+  height: 174px;
+  margin: 0 auto 12px;
+  border-bottom: 2px solid #667394;
+  background: repeating-linear-gradient(0deg, transparent 0 16px, #232b43 17px);
+}
+.limb { position: absolute; height: 5px; background: #8c9cc8; border-radius: 5px; transform-origin: 0 50%; }
+.plumb { position: absolute; left: 95px; top: 10px; bottom: 14px; border-left: 1px dashed #9eabca; }
+.joint { position: absolute; border-radius: 100%; width: 10px; height: 10px; transform: translate(-50%, -30%); background: #e5eaff; }
+.joint-0 { width: 22px; height: 22px; }
+.joint-2 { background: var(--lavender); width: 14px; height: 14px; }
+.joint-3 { background: var(--lime); width: 14px; height: 14px; }
+.motion-key { font-size: .78rem; margin: 7px 0 0; }
+@media (max-width: 420px) {
+  .top .mark { display: none; }
+  .top .actions { gap: 4px; }
+  .top .secondary { font-size: .76rem; padding-inline: 6px; }
+}
